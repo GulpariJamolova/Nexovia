@@ -27,3 +27,6 @@ export default function MatchCard({ match }: { match: CareerMatch }) {
     </div>
   );
 }
+
+
+
