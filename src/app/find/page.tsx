@@ -1,4 +1,4 @@
-import FindFlow from "@/components/find/FindFlow";
+import ProfileFlow from "@/components/profile/ProfileFlow";
 
 export const metadata = { title: "Find my career – Nexovia" };
 
@@ -8,7 +8,7 @@ export default function FindPage() {
       <h1 className="mb-8 text-sm font-semibold uppercase tracking-widest text-violet">
         Find my career
       </h1>
-      <FindFlow />
+      <ProfileFlow />
     </section>
   );
 }
