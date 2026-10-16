@@ -49,8 +49,6 @@ export default function ProfileFlow() {
     if (q.optional) return true;
     if (q.type === "text" || q.type === "textarea") return text(q.id).trim() !== "";
     if (q.type === "birth") return text("birthMonth") !== "" && text("birthYear") !== "";
-    if (q.type === "careerGoal")
-      return text(q.id).trim() !== "" || text("undecided") === "yes";
     const picked = q.type === "multi" ? list(q.id).length > 0 : text(q.id) !== "";
     if (!picked) return false;
     if (otherChosen && text(`${q.id}_other`).trim() === "") return false;
@@ -72,10 +70,6 @@ export default function ProfileFlow() {
       delete profile[`${question.id}_other`];
     }
 
-    if (text("undecided") === "yes") profile.career = "Not decided yet";
-    delete profile.undecided;
-
-    localStorage.setItem("nexovia-profile", JSON.stringify(profile));
     sessionStorage.setItem(
       "nexovia-answers",
       JSON.stringify({ answers: profile, note: String(profile.about ?? "") })
@@ -127,7 +121,6 @@ export default function ProfileFlow() {
         </p>
       )}
 
-      {/* Text */}
       {q.type === "text" && (
         <input
           value={text(q.id)}
@@ -139,7 +132,6 @@ export default function ProfileFlow() {
         />
       )}
 
-      {/* Long text */}
       {q.type === "textarea" && (
         <textarea
           value={text(q.id)}
@@ -151,7 +143,6 @@ export default function ProfileFlow() {
         />
       )}
 
-      {/* Birth month + year */}
       {q.type === "birth" && (
         <div className="mt-6 grid grid-cols-2 gap-3">
           <select
@@ -183,33 +174,6 @@ export default function ProfileFlow() {
         </div>
       )}
 
-      {/* Career goal + "not decided" */}
-      {q.type === "careerGoal" && (
-        <div className="mt-6">
-          <input
-            value={text(q.id)}
-            onChange={(e) => set(q.id, e.target.value)}
-            placeholder={q.placeholder}
-            maxLength={60}
-            disabled={text("undecided") === "yes"}
-            className={`${inputClass} disabled:opacity-50`}
-          />
-          <label className="mt-4 flex cursor-pointer items-center gap-3 text-ink">
-            <input
-              type="checkbox"
-              checked={text("undecided") === "yes"}
-              onChange={(e) => {
-                set("undecided", e.target.checked ? "yes" : "");
-                if (e.target.checked) set(q.id, "");
-              }}
-              className="h-5 w-5 accent-violet"
-            />
-            I haven&apos;t decided yet
-          </label>
-        </div>
-      )}
-
-      {/* Single / multiple choice */}
       {(q.type === "single" || q.type === "multi") && q.options && (
         <>
           <div
@@ -248,7 +212,6 @@ export default function ProfileFlow() {
         </>
       )}
 
-      {/* Optional follow-up (e.g. "Why?") */}
       {q.followUp && (
         <div className="mt-6">
           <label htmlFor={q.followUp.id} className="mb-2 block font-medium text-navy">
