@@ -1,29 +1,18 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { careers } from "@/data/careers";
+import CareerExplorer from "@/components/career/CareerExplorer";
 
 export const metadata = { title: "Explore a career – Nexovia" };
 
-export default function CareerIndex() {
+export default function CareerPage() {
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-      <h1 className="text-3xl font-bold text-navy sm:text-4xl">Explore a career</h1>
-      <p className="mb-8 mt-2 text-ink/70">Pick a career to see what it&apos;s really like.</p>
-      <div className="grid gap-6 md:grid-cols-3">
-        {careers.map((c) => (
-          <Link
-            key={c.slug}
-            href={`/career/${c.slug}`}
-            className="group rounded-3xl bg-white p-6 shadow-sm ring-1 ring-navy/5"
-          >
-            <h2 className="text-xl font-bold text-navy">{c.name}</h2>
-            <p className="mt-2 text-ink/75">{c.summary}</p>
-            <span className="mt-4 inline-flex items-center gap-2 font-semibold text-violet">
-              Learn more <ArrowRight size={18} className="transition group-hover:translate-x-1" />
-            </span>
-          </Link>
-        ))}
-      </div>
+    <section className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <p className="text-sm font-semibold uppercase tracking-widest text-violet-dark">Explore a career</p>
+      <h1 className="mt-2 font-heading text-3xl font-bold text-navy sm:text-4xl">
+        What do you want to know more about?
+      </h1>
+      <p className="mb-8 mt-2 max-w-2xl text-ink/80">
+        Search for a job you already have in mind, or browse by category.
+      </p>
+      <CareerExplorer />
     </section>
   );
 }

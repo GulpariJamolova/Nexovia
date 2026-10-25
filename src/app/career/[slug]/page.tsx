@@ -1,40 +1,56 @@
-import Link from "next/link";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { careers, getCareer } from "@/data/careers";
+import { careers, getCareer } from "@/lib/careers";
+import {
+  AnchorNav, CareerIntro, DaySection, NextActions,
+  ProsConsSection, QualitiesSection, RelatedSection, SubjectsSection,
+} from "@/components/career/CareerSections";
+import SalarySection from "@/components/career/SalarySection";
+import ChallengeSection from "@/components/career/ChallengeSection";
+import ReflectionSection from "@/components/career/ReflectionSection";
 
 export function generateStaticParams() {
   return careers.map((c) => ({ slug: c.slug }));
 }
 
-export default async function CareerPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const career = getCareer(slug);
+  if (!career) return { title: "Career not found – Nexovia" };
+  return { title: `${career.name} – Nexovia`, description: career.summary };
+}
+
+export default async function CareerDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const career = getCareer(slug);
   if (!career) notFound();
 
+  const related = career.related
+    .map((r) => getCareer(r.slug))
+    .filter((c): c is NonNullable<typeof c> => !!c)
+    .map((c) => ({ slug: c.slug, name: c.name }));
+
   return (
-    <section className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
-      <h1 className="text-3xl font-bold text-navy sm:text-4xl">{career.name}</h1>
-      <p className="mt-3 text-lg text-ink/75">{career.summary}</p>
-
-      <h2 className="mt-8 text-xl font-bold text-navy">A day in the life</h2>
-      <ul className="mt-3 list-disc space-y-1 pl-5 text-ink/80">
-        {career.dayInLife.map((d) => (
-          <li key={d}>{d}</li>
-        ))}
-      </ul>
-
-      <h2 className="mt-8 text-xl font-bold text-navy">School subjects that help</h2>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {career.subjects.map((s) => (
-          <span key={s} className="rounded-full bg-lavender px-3 py-1 text-xs font-medium text-navy">
-            {s}
-          </span>
-        ))}
-      </div>
-
-      <Link href="/career" className="mt-10 inline-block font-semibold text-violet">
-        ← Explore other careers
-      </Link>
-    </section>
+    <article>
+      <CareerIntro career={career} />
+      <AnchorNav />
+      <SubjectsSection career={career} />
+      <ProsConsSection career={career} />
+      <SalarySection name={career.name} salary={career.salary} />
+      <QualitiesSection career={career} />
+      <DaySection career={career} />
+      <ChallengeSection slug={career.slug} challenge={career.challenge} />
+      <ReflectionSection tasks={career.day} related={related} />
+      <RelatedSection career={career} />
+      <NextActions />
+    </article>
   );
 }

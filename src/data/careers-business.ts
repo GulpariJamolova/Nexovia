@@ -1,0 +1,388 @@
+import type { Seed } from "./careers-build";
+
+export const businessSeeds: Seed[] = [
+  {
+    slug: "accountant",
+    name: "Accountant",
+    category: "business",
+    summary: "Records, checks and explains money for people and organisations.",
+    overview:
+      "Accountants keep financial records, prepare reports, calculate taxes and help organisations understand their money. They work in firms, companies, government and for themselves.",
+    purpose: "To keep money information accurate and useful.",
+    dailyWork: "Recording transactions, preparing reports, checking numbers and advising managers.",
+    example:
+      "A small shop needs to know if it is making a profit. The accountant checks the sales and costs, prepares a report and suggests where to save.",
+    kw: ["accountant", "accounting", "bookkeeper", "auditor", "tax", "finance"],
+    tags: ["office", "data", "puzzles", "people", "team"],
+    subj: [
+      ["math", "Accurate calculation is the core skill.", "Adding up costs and sales."],
+      ["business", "Understanding how organisations earn and spend.", "Reading a profit and loss statement."],
+      ["cs", "Accounting software is used daily.", "Using spreadsheets."],
+    ],
+    skills: ["Accuracy", "Organisation", "Honesty"],
+    path: [
+      ["Study", "Many accountants study accounting or finance, then take professional exams to qualify."],
+      ["Experience", "Training in an accounting firm or company is common."],
+    ],
+    enjoy: ["Clear career paths", "Work in every industry", "Variety of clients", "Respected, trusted profession"],
+    consider: ["Busy periods around deadlines", "Detailed, repetitive work", "Professional exams take effort", "Rules change often"],
+    qual: [["detail", "Small errors matter."], ["organised", "Records must be tidy."], ["decisions", "Accountants judge what numbers show."], ["communicating", "They explain numbers to non-experts."]],
+    day: [["Record", "Enter transactions."], ["Check", "Match records and receipts."], ["Prepare", "Create reports."], ["Advise", "Explain results."], ["Plan", "Prepare for deadlines and taxes."]],
+    quiz: { title: "Balance the books", intro: "A little accounting.", q: [
+      ["A shop earns 500 and spends 350. What is the profit?", ["150", "850", "250"], 0, "Profit = income − costs = 150."],
+      ["Why do accountants keep receipts?", ["As proof of transactions", "To make files heavy", "No reason"], 0, "Receipts support the records."]] },
+    related: [["financial-analyst", "Both work with financial data."], ["compliance-officer", "Both check that rules are followed."], ["finance-specialist", "Both work in finance."]],
+  },
+  {
+    slug: "financial-analyst",
+    name: "Financial Analyst",
+    category: "business",
+    summary: "Studies financial data to help companies and investors make decisions.",
+    overview:
+      "Financial analysts study company results, markets and trends to forecast performance and advise on investments, budgets and growth.",
+    purpose: "To help decision-makers understand risk and opportunity.",
+    dailyWork: "Building spreadsheets and models, researching companies, writing reports and presenting recommendations.",
+    example:
+      "A company is thinking about opening a new shop. The analyst estimates costs and sales, and shows whether it is likely to pay off.",
+    kw: ["financial analyst", "investment analyst", "finance", "analyst", "investment", "banking"],
+    tags: ["office", "data", "puzzles", "research", "team", "ideas"],
+    subj: [
+      ["math", "Percentages, growth and forecasts.", "Calculating interest."],
+      ["business", "Understanding companies and markets.", "Reading company results."],
+      ["cs", "Spreadsheets and data tools.", "Building a forecast model."],
+    ],
+    skills: ["Number skills", "Research", "Presenting"],
+    path: [
+      ["Degree", "Many analysts study finance, economics, accounting or maths."],
+      ["Professional exams", "Some take professional qualifications such as CFA."],
+    ],
+    enjoy: ["Understanding how money moves", "Strong career growth", "Mix of maths and business", "Work in many sectors"],
+    consider: ["Long hours in some firms", "Pressure from deadlines", "Markets are uncertain", "Competitive jobs"],
+    qual: [["detail", "Errors can be costly."], ["problem-solving", "Models answer business questions."], ["decisions", "Analysts recommend choices."], ["communicating", "Reports must be clear."]],
+    day: [["Collect data", "Gather company and market data."], ["Model", "Build forecasts."], ["Research", "Study competitors and trends."], ["Report", "Write recommendations."], ["Present", "Explain to decision-makers."]],
+    quiz: { title: "Forecast it", intro: "Think like an analyst.", q: [
+      ["Sales grow 10% from 200. What are the new sales?", ["220", "210", "300"], 0, "200 + 20 = 220."],
+      ["Why do analysts test different scenarios?", ["The future is uncertain", "To waste time", "To confuse people"], 0, "Scenarios show a range of outcomes."]] },
+    related: [["accountant", "Both work with financial records."], ["economist", "Both study economic trends."], ["data-analyst", "Both analyse data."]],
+  },
+  {
+    slug: "finance-specialist",
+    name: "Finance Specialist",
+    category: "business",
+    summary: "Manages money, budgets and banking services for organisations or clients.",
+    overview:
+      "Finance specialists work in banks, companies and advisory firms. They plan budgets, manage loans and investments, and help clients make good money decisions.",
+    purpose: "To help people and organisations manage money well.",
+    dailyWork: "Planning budgets, analysing options, advising clients and checking financial risks.",
+    example:
+      "A family wants to buy a home. The finance specialist explains loan options, calculates payments and helps them choose a plan they can afford.",
+    kw: ["finance specialist", "banker", "bank", "finance", "financial adviser", "financial advisor", "investment", "wealth manager"],
+    tags: ["office", "people", "data", "puzzles", "team", "leading"],
+    subj: [
+      ["math", "Interest and budgets need numbers.", "Calculating monthly payments."],
+      ["business", "Understanding money and markets.", "How banks make money."],
+      ["languages", "Advice must be explained simply.", "Writing a clear summary for a client."],
+    ],
+    skills: ["Number skills", "Trustworthiness", "Communication"],
+    path: [
+      ["Study", "Many specialists study finance, business, economics or accounting."],
+      ["Qualifications", "Banking and finance exams are common."],
+    ],
+    enjoy: ["Helping people with money decisions", "Wide range of employers", "Good progression", "Mix of numbers and people"],
+    consider: ["Targets and pressure in some roles", "Rules are strict", "Markets change", "Needs careful honesty"],
+    qual: [["detail", "Numbers must be accurate."], ["communicating", "Advice must be clear."], ["decisions", "Choices affect clients."], ["organised", "Many accounts must be managed."]],
+    day: [["Meet clients", "Understand goals."], ["Analyse", "Compare options."], ["Plan", "Prepare budgets or proposals."], ["Advise", "Explain recommendations."], ["Review", "Check results over time."]],
+    quiz: { title: "Money choices", intro: "Think about money.", q: [
+      ["Why is it wise to save a little regularly?", ["It builds up over time", "It loses money", "It is impossible"], 0, "Small regular savings grow."],
+      ["Why should advisers explain risks?", ["Clients need to understand what could go wrong", "To scare them", "Risk does not exist"], 0, "Honest advice includes risks."]] },
+    related: [["accountant", "Both work with money."], ["financial-analyst", "Both analyse financial data."], ["economist", "Both study how money works."]],
+  },
+  {
+    slug: "economist",
+    name: "Economist",
+    category: "business",
+    summary: "Studies how people, businesses and countries use money and resources.",
+    overview:
+      "Economists study prices, jobs, trade and growth. They advise governments, banks and companies, using data and models to understand how decisions affect society.",
+    purpose: "To understand and improve how economies work.",
+    dailyWork: "Analysing data, building models, writing reports and advising decision-makers.",
+    example:
+      "A government wants to know how a new tax will affect families. The economist studies data, models the effects and reports the likely outcomes.",
+    kw: ["economist", "economics", "economy", "policy analyst", "market research"],
+    tags: ["research", "data", "ideas", "office", "puzzles", "humanities", "people"],
+    subj: [
+      ["business", "Economics is the foundation.", "How supply and demand set prices."],
+      ["math", "Models and statistics are central.", "Reading a graph of growth."],
+      ["humanities", "Society and history shape economies.", "Understanding past crises."],
+    ],
+    skills: ["Analytical thinking", "Maths", "Writing"],
+    path: [
+      ["Degree", "Economists study economics, and many continue to master's or doctoral study."],
+      ["Experience", "Internships in banks, government or research teams help."],
+    ],
+    enjoy: ["Understanding big issues", "Influencing decisions", "Strong analytical skills", "Work in many sectors"],
+    consider: ["Predictions are uncertain", "Abstract theory", "Competitive posts", "Lots of data work"],
+    qual: [["curious", "Economists ask why things happen."], ["problem-solving", "Models explain real situations."], ["detail", "Data must be handled carefully."], ["communicating", "Findings must be clear."]],
+    day: [["Gather data", "Collect economic figures."], ["Model", "Test ideas."], ["Analyse", "Interpret results."], ["Write", "Prepare reports."], ["Advise", "Present to decision-makers."]],
+    quiz: { title: "Supply and demand", intro: "A little economics.", q: [
+      ["If many people want something that is scarce, what usually happens to its price?", ["It rises", "It falls", "It disappears"], 0, "High demand and low supply push prices up."],
+      ["Why do economists use data?", ["To test ideas against reality", "To decorate reports", "It is not needed"], 0, "Data checks theories."]] },
+    related: [["financial-analyst", "Both analyse financial trends."], ["statistician", "Both use statistics."], ["diplomat", "Economists advise on trade and policy."]],
+  },
+  {
+    slug: "entrepreneur",
+    name: "Entrepreneur / Self-employed Professional",
+    category: "business",
+    summary: "Starts and runs their own business, turning an idea into a product or service.",
+    overview:
+      "Entrepreneurs spot problems and build businesses to solve them. Businesspeople and self-employed professionals handle planning, money, customers and marketing themselves, and take on the risk and reward.",
+    purpose: "To create value by building a business.",
+    dailyWork: "Planning, selling, managing money, working with customers and making decisions.",
+    example:
+      "A student sells handmade bracelets online. She designs them, sets prices, photographs them, posts them and replies to customers.",
+    kw: ["entrepreneur", "businesswoman", "businessman", "business owner", "self-employed", "founder", "startup", "own business", "small business"],
+    tags: ["leading", "ideas", "people", "creating", "office", "team", "things"],
+    subj: [
+      ["business", "The core subject.", "Working out costs and prices."],
+      ["math", "Money skills are essential.", "Calculating profit."],
+      ["languages", "Selling and writing.", "Pitching an idea."],
+    ],
+    skills: ["Initiative", "Money skills", "Resilience"],
+    path: [
+      ["Start small", "Many founders begin with a small idea tested on friends or online."],
+      ["Learn", "Business courses, mentors and experience help, but there is no single route."],
+    ],
+    enjoy: ["Being your own boss", "Building something yourself", "Variety every day", "Potential for growth"],
+    consider: ["Income can be uncertain", "Long hours at the start", "You carry the risk", "Many businesses do not succeed"],
+    qual: [["decisions", "Founders make many decisions."], ["independent", "You drive your own work."], ["creative", "Good ideas set businesses apart."], ["organised", "Money, customers and tasks must be managed."]],
+    day: [["Plan the day", "Set priorities."], ["Serve customers", "Sell and support."], ["Manage money", "Track income and costs."], ["Market", "Share the business."], ["Improve", "Learn from feedback."]],
+    quiz: { title: "Start small", intro: "Think like a founder.", q: [
+      ["You sell an item for 12 that costs 8 to make. What is the profit per item?", ["4", "20", "12"], 0, "12 − 8 = 4."],
+      ["Why test an idea with a few customers first?", ["You learn what works before spending a lot", "It is slower", "It is not useful"], 0, "Testing reduces risk."]] },
+    related: [["freelancer", "Both work for themselves."], ["business-manager", "Both lead teams and plan."], ["marketing-manager", "Both promote products."]],
+  },
+  {
+    slug: "business-administrator",
+    name: "Business Administration Specialist",
+    category: "business",
+    summary: "Keeps an organisation's daily work running smoothly.",
+    overview:
+      "Business administration specialists plan schedules, manage records, support teams, handle customers and improve how the organisation works.",
+    purpose: "To keep the organisation organised and efficient.",
+    dailyWork: "Coordinating tasks, managing documents, communicating with teams and customers and solving problems.",
+    example:
+      "A clinic's appointment system is confusing. The administrator redesigns the process and trains staff so waiting times fall.",
+    kw: ["business administration", "administrator", "office manager", "administration", "operations", "office"],
+    tags: ["office", "team", "people", "leading", "data", "things"],
+    subj: [
+      ["business", "Understanding how organisations work.", "Planning a schedule."],
+      ["languages", "Clear communication.", "Writing an email."],
+      ["cs", "Office software and databases.", "Managing a spreadsheet."],
+    ],
+    skills: ["Organisation", "Communication", "Problem-solving"],
+    path: [
+      ["Study", "Many specialists study business administration or management, but some start with training and experience."],
+      ["Grow", "They can progress to management roles."],
+    ],
+    enjoy: ["Variety of tasks", "Jobs in every industry", "Clear progression", "Working with many people"],
+    consider: ["Can be repetitive", "Many small tasks at once", "Deadlines", "Sometimes behind the scenes"],
+    qual: [["organised", "Everything must be managed."], ["communicating", "Many people to coordinate."], ["problem-solving", "Fixing processes."], ["teamwork", "Support teams daily."]],
+    day: [["Plan", "Schedule tasks."], ["Coordinate", "Help teams."], ["Manage records", "Keep documents tidy."], ["Solve problems", "Fix issues."], ["Improve", "Make processes smoother."]],
+    quiz: { title: "Run the office", intro: "Organise the work.", q: [
+      ["Two meetings overlap. What do you do?", ["Check priorities and reschedule one", "Ignore it", "Cancel both"], 0, "Good coordination resolves clashes."],
+      ["Why are records kept tidy?", ["So information is easy to find", "To fill folders", "No reason"], 0, "Organised records save time."]] },
+    related: [["business-manager", "Both keep organisations running."], ["accountant", "Both manage records."], ["human-resources-manager", "Both support staff."]],
+  },
+  {
+    slug: "business-manager",
+    name: "Management Professional",
+    category: "business",
+    summary: "Leads teams and organisations to reach goals.",
+    overview:
+      "Managers plan work, lead people, manage budgets and make decisions so teams achieve results. They work in every industry, from schools and hospitals to technology and retail.",
+    purpose: "To help teams work well together toward clear goals.",
+    dailyWork: "Setting goals, leading meetings, solving problems, managing budgets and supporting staff.",
+    example:
+      "A manager notices her team is overloaded. She reorganises tasks, hires help and checks progress weekly.",
+    kw: ["manager", "management", "team leader", "business manager", "operations manager", "management professional", "leader"],
+    tags: ["leading", "people", "team", "office", "ideas", "data"],
+    subj: [
+      ["business", "Core knowledge of how organisations work.", "Setting a budget."],
+      ["languages", "Leading people needs clear communication.", "Running a meeting."],
+      ["math", "Budgets and targets need numbers.", "Tracking progress against goals."],
+    ],
+    skills: ["Leadership", "Decision-making", "Communication"],
+    path: [
+      ["Study", "Many managers study business, management or their field, and some add an MBA."],
+      ["Experience", "Most managers grow from team roles."],
+    ],
+    enjoy: ["Helping a team succeed", "Variety", "Opportunities in every industry", "Career progression"],
+    consider: ["Responsibility for others", "Pressure for results", "Difficult conversations", "Long hours at times"],
+    qual: [["decisions", "Managers choose between options."], ["communicating", "Leading needs clear messages."], ["organised", "Many things need tracking."], ["teamwork", "Success is the team's."]],
+    day: [["Plan", "Set goals and priorities."], ["Lead", "Run meetings and support staff."], ["Solve", "Fix problems."], ["Track", "Check progress and budgets."], ["Develop", "Coach team members."]],
+    quiz: { title: "Lead the team", intro: "Make management choices.", q: [
+      ["A team member is struggling. What should a good manager do first?", ["Listen and offer support", "Ignore it", "Blame them"], 0, "Support helps people improve."],
+      ["Why set clear goals?", ["So everyone knows what success looks like", "To create stress", "It is not needed"], 0, "Clear goals focus effort."]] },
+    related: [["business-administrator", "Both organise work."], ["project-manager", "Both lead teams."], ["entrepreneur", "Both make business decisions."]],
+  },
+  {
+    slug: "freelancer",
+    name: "Freelance Worker",
+    category: "business",
+    summary: "Works independently for different clients instead of one employer.",
+    overview:
+      "Freelancers sell their skills, such as writing, design, programming, translation or photography, to different clients. They choose projects, set prices and manage their own business.",
+    purpose: "To earn a living with flexibility and independence.",
+    dailyWork: "Finding clients, doing projects, sending invoices and managing time.",
+    example:
+      "A freelance designer works for three clients. She plans her week, delivers designs and invoices each client.",
+    kw: ["freelancer", "freelance", "self-employed", "contractor", "independent worker", "gig"],
+    tags: ["ideas", "creating", "office", "people", "things"],
+    subj: [
+      ["business", "Running a small business.", "Setting prices."],
+      ["languages", "Communicating with clients.", "Writing a proposal."],
+      ["cs", "Most freelancers use digital tools.", "Using online invoicing."],
+    ],
+    skills: ["Self-discipline", "Communication", "Money management"],
+    path: [
+      ["Build a skill", "Freelancers first develop a skill people pay for."],
+      ["Find clients", "Start with a portfolio, contacts and online platforms."],
+    ],
+    enjoy: ["Flexible hours and location", "Choosing your own projects", "Variety", "Control over your work"],
+    consider: ["Income can be uneven", "No paid leave or fixed salary", "Finding clients takes time", "Tax and admin are your job"],
+    qual: [["independent", "You manage yourself."], ["organised", "Time and money must be planned."], ["communicating", "Clients need clear updates."], ["decisions", "You decide which work to accept."]],
+    day: [["Plan", "Set priorities."], ["Work", "Complete projects."], ["Communicate", "Update clients."], ["Find work", "Pitch or network."], ["Admin", "Invoice and track money."]],
+    quiz: { title: "Freelance choices", intro: "Think like a freelancer.", q: [
+      ["A client pays late. What helps?", ["Clear agreements and invoices", "Doing nothing", "Working for free"], 0, "Clear terms prevent problems."],
+      ["Why save some income in busy months?", ["Quiet months may come", "It is silly", "Money disappears"], 0, "Income can be uneven."]] },
+    related: [["entrepreneur", "Both work for themselves."], ["content-creator", "Many creators freelance."], ["web-developer", "Many developers freelance."]],
+  },
+  {
+    slug: "marketing-manager",
+    name: "Marketing Manager",
+    category: "business",
+    summary: "Plans how to tell people about products and make them want to use them.",
+    overview:
+      "Marketing managers study customers, plan campaigns, manage social media, adverts and events, and measure how well they work.",
+    purpose: "To connect products with the people who need them.",
+    dailyWork: "Researching customers, planning campaigns, working with designers and writers and reading results.",
+    example:
+      "A new trainer brand launches. The marketer chooses social media channels, plans a campaign and checks which posts get the most interest.",
+    kw: ["marketing manager", "marketing", "advertising", "social media manager", "brand manager", "digital marketing"],
+    tags: ["creating", "people", "ideas", "data", "office", "team", "leading"],
+    subj: [
+      ["business", "Understanding customers and markets.", "Choosing who a product is for."],
+      ["languages", "Persuasive writing.", "Writing a slogan."],
+      ["art", "Visual style attracts attention.", "Judging a poster design."],
+    ],
+    skills: ["Creativity", "Data reading", "Communication"],
+    path: [
+      ["Study", "Many marketers study marketing, business or communications."],
+      ["Experience", "Social media and content experience helps."],
+    ],
+    enjoy: ["Creative and analytical mix", "Work in every industry", "Seeing campaigns succeed", "Variety"],
+    consider: ["Targets and deadlines", "Results can be hard to prove", "Trends change quickly", "Competitive"],
+    qual: [["creative", "Campaigns need fresh ideas."], ["curious", "Study customers."], ["communicating", "Messages must be clear."], ["teamwork", "Work with designers and writers."]],
+    day: [["Research", "Study customers."], ["Plan", "Design campaigns."], ["Create", "Work with creatives."], ["Launch", "Publish."], ["Measure", "Learn from results."]],
+    quiz: { title: "Reach the audience", intro: "Think like a marketer.", q: [
+      ["Who should you think about first when planning a campaign?", ["The customers", "The competitor's logo", "Your own favourite colour"], 0, "Marketing starts with understanding customers."],
+      ["Why check campaign results?", ["To learn what works", "To waste time", "No reason"], 0, "Measuring improves later campaigns."]] },
+    related: [["graphic-designer", "Marketers work with designers."], ["content-creator", "Both create for audiences."], ["entrepreneur", "Both promote products."]],
+  },
+  {
+    slug: "human-resources-manager",
+    name: "Human Resources Manager",
+    category: "business",
+    summary: "Helps organisations recruit, support and develop their people.",
+    overview:
+      "HR managers hire staff, support employees, resolve problems, run training and make sure workplace rules are fair and followed.",
+    purpose: "To help people and organisations succeed together.",
+    dailyWork: "Recruiting, interviewing, supporting staff, training and advising managers.",
+    example:
+      "A company needs a new designer. The HR manager writes the job advert, screens applicants and arranges interviews.",
+    kw: ["hr manager", "human resources", "recruiter", "hr", "talent", "people manager"],
+    tags: ["people", "helping", "office", "team", "leading", "humanities"],
+    subj: [
+      ["business", "Understanding organisations.", "How teams are structured."],
+      ["languages", "Interviewing and writing.", "Writing a job advert."],
+      ["humanities", "Understanding people and society.", "Fairness at work."],
+    ],
+    skills: ["Listening", "Fairness", "Organisation"],
+    path: [
+      ["Study", "Many study human resources, business or psychology."],
+      ["Experience", "Many start as HR assistants or recruiters."],
+    ],
+    enjoy: ["Helping people", "Variety of tasks", "Work in every industry", "Good career paths"],
+    consider: ["Difficult conversations", "Confidentiality", "Pressure from both staff and managers", "Paperwork"],
+    qual: [["helping", "HR supports people."], ["communicating", "Many conversations."], ["decisions", "Fair, careful choices."], ["organised", "Many records and tasks."]],
+    day: [["Review openings", "Plan recruitment."], ["Interview", "Meet candidates."], ["Support staff", "Answer questions."], ["Train", "Organise learning."], ["Record", "Keep files confidential."]],
+    quiz: { title: "Fair hiring", intro: "Make HR decisions.", q: [
+      ["Why should interviews use the same questions for each candidate?", ["It is fair and comparable", "It is shorter", "To confuse them"], 0, "Consistency supports fairness."],
+      ["Why is employee information kept confidential?", ["To respect privacy", "To hide it from everyone", "No reason"], 0, "Staff must trust HR."]] },
+    related: [["business-manager", "Both work with teams."], ["psychologist", "Both understand behaviour."], ["trainer-coach", "Both develop people."]],
+  },
+  {
+    slug: "project-manager",
+    name: "Project Manager",
+    category: "business",
+    summary: "Plans and leads projects so they finish on time and on budget.",
+    overview:
+      "Project managers break big tasks into steps, organise teams, manage budgets and solve problems so projects such as building a bridge, launching an app or organising an event succeed.",
+    purpose: "To deliver projects successfully.",
+    dailyWork: "Planning schedules, leading meetings, tracking progress and solving problems.",
+    example:
+      "A school is building a new science lab. The project manager plans each stage, keeps contractors on schedule and reports to the principal.",
+    kw: ["project manager", "project management", "programme manager", "scrum master", "event manager", "coordinator"],
+    tags: ["leading", "team", "office", "people", "puzzles", "things"],
+    subj: [
+      ["business", "Planning and budgets.", "Making a project timeline."],
+      ["math", "Time and cost calculations.", "Working out the budget."],
+      ["languages", "Clear communication.", "Writing a status update."],
+    ],
+    skills: ["Planning", "Leadership", "Problem-solving"],
+    path: [
+      ["Experience and study", "Project managers come from many fields, often with business or technical degrees."],
+      ["Certificates", "Certificates such as PMP or PRINCE2 are common."],
+    ],
+    enjoy: ["Seeing projects completed", "Variety", "Leading teams", "Work in every industry"],
+    consider: ["Stress when things go wrong", "Responsibility for deadlines", "Many meetings", "Juggling several tasks"],
+    qual: [["organised", "Everything must be planned."], ["decisions", "Choose quickly under pressure."], ["communicating", "Keep everyone informed."], ["teamwork", "Lead people together."]],
+    day: [["Check progress", "Review schedule."], ["Meet the team", "Solve problems."], ["Update stakeholders", "Report clearly."], ["Manage risks", "Prepare for problems."], ["Plan next steps", "Adjust the schedule."]],
+    quiz: { title: "Plan the project", intro: "Think like a project manager.", q: [
+      ["A task is late and delays others. What first?", ["Find out why and adjust the plan", "Ignore it", "Cancel the project"], 0, "Understand the cause and replan."],
+      ["Why break a project into small tasks?", ["Easier to plan and track", "To make it longer", "No reason"], 0, "Small tasks are manageable."]] },
+    related: [["construction-manager", "Both manage big projects."], ["business-manager", "Both lead teams."], ["urban-planner", "Both plan complex projects."]],
+  },
+  {
+    slug: "facilities-manager",
+    name: "Facilities Manager",
+    category: "business",
+    summary: "Looks after buildings and services so people can work and live safely and comfortably.",
+    overview:
+      "Facilities managers organise maintenance, safety, cleaning, security and energy use for buildings such as offices, schools, malls and hospitals.",
+    purpose: "To keep buildings safe, comfortable and efficient.",
+    dailyWork: "Managing contractors, checking safety, handling repairs, managing budgets and planning maintenance.",
+    example:
+      "A mall's air-conditioning fails. The facilities manager arranges repairs, informs tenants and plans maintenance to prevent it happening again.",
+    kw: ["facilities manager", "building manager", "property manager", "facility management", "maintenance manager"],
+    tags: ["leading", "things", "team", "people", "building", "office"],
+    subj: [
+      ["business", "Budgets and contracts.", "Comparing contractor quotes."],
+      ["physics", "Energy, heating and cooling.", "How air conditioning works."],
+      ["math", "Costs and measurements.", "Calculating energy use."],
+    ],
+    skills: ["Organisation", "Problem-solving", "Leadership"],
+    path: [
+      ["Study or training", "Many study facilities management, business or engineering, and gain professional certificates."],
+      ["Experience", "Many start in maintenance or administration."],
+    ],
+    enjoy: ["Practical, varied work", "Keeping buildings running", "Leading teams", "Strong demand in cities with many buildings"],
+    consider: ["Emergencies at any hour", "Responsibility for safety", "Managing contractors", "Budget pressure"],
+    qual: [["organised", "Many systems to manage."], ["problem-solving", "Fix issues quickly."], ["decisions", "Choose between repairs."], ["teamwork", "Work with many people."]],
+    day: [["Inspect", "Walk the building."], ["Plan maintenance", "Schedule repairs."], ["Manage contractors", "Check work."], ["Handle issues", "Respond to problems."], ["Report", "Track costs."]],
+    quiz: { title: "Keep it running", intro: "Make facilities choices.", q: [
+      ["Why do buildings have regular maintenance checks?", ["To fix small problems before they become big", "To waste money", "No reason"], 0, "Prevention is cheaper and safer."],
+      ["A fire exit is blocked. What should you do?", ["Clear it immediately", "Ignore it", "Wait until next month"], 0, "Safety comes first."]] },
+    related: [["construction-manager", "Both work with buildings."], ["project-manager", "Both organise teams and budgets."], ["business-manager", "Both manage operations."]],
+  },
+];

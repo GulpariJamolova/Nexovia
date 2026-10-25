@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nexovia feedback form (for Netlify)</title>
+  </head>
+  <body>
+    <!--
+      This file is NOT a page for visitors. Netlify reads it while building the
+      site, so it knows the feedback form exists and which fields it has.
+      The real form is in src/components/feedback/FeedbackForm.tsx.
+      If you add or rename a field there, add or rename it here too.
+    -->
+    <form name="nexovia-feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="nexovia-feedback" />
+      <input name="bot-field" />
+      <input name="rating" />
+      <input name="liked" />
+      <input name="message" />
+      <input name="page" />
+    </form>
+  </body>
+</html>

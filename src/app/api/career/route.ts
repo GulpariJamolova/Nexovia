@@ -1,4 +1,4 @@
-import { careers, getCareer } from "@/data/careers";
+import { careers, getCareer } from "@/lib/careers";
 
 export async function GET(req: Request) {
   const slug = new URL(req.url).searchParams.get("slug");

@@ -1,0 +1,748 @@
+import type { Seed } from "./careers-build";
+
+export const technologySeeds: Seed[] = [
+  {
+    slug: "it-programmer",
+    name: "IT Programmer",
+    category: "technology",
+    summary: "Writes and maintains the programs and systems that organisations run on.",
+    overview:
+      "IT programmers write code for the systems businesses and schools depend on, such as databases, internal tools and automated processes. They fix problems, add features and keep systems running smoothly.",
+    purpose: "To keep an organisation's technology working and improving.",
+    dailyWork: "Writing and testing code, fixing bugs, updating systems and helping colleagues who use the software.",
+    example:
+      "A hospital's booking system is slow. The programmer finds the part of the code causing the delay, rewrites it and tests that appointments are saved correctly.",
+    kw: ["it programmer", "programmer", "coder", "coding", "it specialist", "programming", "software programmer"],
+    tags: ["tech", "puzzles", "office", "ideas", "data", "creating", "cs", "math", "team"],
+    subj: [
+      ["cs", "Programming languages and how computers work are the core skills.", "Writing a function that sorts a list."],
+      ["math", "Logic and patterns sit behind code.", "Using logic to decide which steps run first."],
+      ["languages", "Clear writing helps when explaining and documenting code.", "Writing instructions that colleagues can follow."],
+    ],
+    skills: ["Logical thinking", "Persistence", "Clear communication"],
+    path: [
+      ["Study or self-learning", "Many programmers have a computer science or IT degree, while others learn through courses, apprenticeships and projects."],
+      ["Build a portfolio", "Showing real projects you have built is often as important as qualifications."],
+    ],
+    enjoy: [
+      "Solving logic puzzles that have real results",
+      "Strong demand for programming skills in almost every industry",
+      "Many flexible and remote working options",
+      "Constant learning and new tools",
+    ],
+    consider: [
+      "Long periods at a computer",
+      "Finding a bug can be slow and frustrating",
+      "Technology changes, so you keep learning",
+      "Deadlines and urgent fixes can be stressful",
+    ],
+    qual: [
+      ["problem-solving", "Programming is breaking a problem into steps."],
+      ["patient", "Debugging can take careful, steady effort."],
+      ["detail", "A single missing character can break code."],
+      ["curious", "New languages and tools appear regularly."],
+    ],
+    day: [
+      ["Check tasks", "Review what needs building or fixing."],
+      ["Write code", "Turn the plan into working instructions."],
+      ["Test", "Run the program and look for errors."],
+      ["Fix problems", "Track down and repair bugs."],
+      ["Share and document", "Explain changes to the team."],
+    ],
+    quiz: {
+      title: "Debug the code",
+      intro: "Two questions programmers face every day.",
+      q: [
+        ["A program prints the numbers 1 to 5 but you want 1 to 10. What should you change?", ["The number where the loop stops", "The colour of the screen", "The computer"], 0, "A loop's stopping value decides how many times it repeats."],
+        ["Why do programmers test code after writing it?", ["To find mistakes before users do", "To use more electricity", "Because code never works"], 0, "Testing finds problems early."],
+      ],
+    },
+    related: [
+      ["software-developer", "Developers build full products, often with the same coding skills."],
+      ["web-developer", "Web developers build websites and web apps."],
+      ["cybersecurity-specialist", "Both work with computer systems, one building and one protecting."],
+    ],
+  },
+  {
+    slug: "web-developer",
+    name: "Web Developer",
+    category: "technology",
+    summary: "Builds websites and web apps that people use in their browsers.",
+    overview:
+      "Web developers create the pages, tools and online services we use every day. Some focus on how a site looks and feels, others on the servers and databases behind it, and many do both.",
+    purpose: "To build useful, reliable and accessible websites.",
+    dailyWork: "Writing code for pages and features, testing on different devices, fixing bugs and working with designers.",
+    example:
+      "A school wants an online timetable. The developer builds a page that shows each class, works on phones and updates when timetables change.",
+    kw: ["web developer", "website", "frontend", "front-end", "backend", "html", "javascript", "web design"],
+    tags: ["tech", "puzzles", "creating", "design", "ideas", "office", "cs", "team", "art"],
+    subj: [
+      ["cs", "Languages such as HTML, CSS and JavaScript power the web.", "Making a button respond to a click."],
+      ["art", "Layout, colour and type make sites easy to use.", "Choosing readable fonts and colours."],
+      ["languages", "Words on screen need to be clear.", "Writing a helpful error message."],
+    ],
+    skills: ["Coding", "Eye for design", "Testing on different devices"],
+    path: [
+      ["Study or self-learning", "Many developers study computer science, but courses, bootcamps and personal projects are also common routes."],
+      ["Portfolio", "A set of websites you have built often matters more than a certificate."],
+    ],
+    enjoy: [
+      "Seeing your work live on the internet",
+      "A mix of creativity and logic",
+      "Strong demand and flexible working in many roles",
+      "Easy to start learning with free tools",
+    ],
+    consider: [
+      "Tools and frameworks change quickly",
+      "Clients and users may ask for many changes",
+      "Long hours at a screen",
+      "A competitive field for entry-level jobs",
+    ],
+    qual: [
+      ["creative", "Good websites are designed as well as coded."],
+      ["problem-solving", "Layouts and bugs often need clever fixes."],
+      ["detail", "Small differences in code change what users see."],
+      ["curious", "Web technology keeps evolving."],
+    ],
+    day: [
+      ["Read the brief", "Understand what the site must do."],
+      ["Build pages", "Write code for layouts and features."],
+      ["Test on devices", "Check phones, tablets and laptops."],
+      ["Fix bugs", "Solve problems users find."],
+      ["Deploy and improve", "Publish updates and collect feedback."],
+    ],
+    quiz: {
+      title: "Build the page",
+      intro: "Think like a web developer.",
+      q: [
+        ["Which language describes how a web page looks (colours and layout)?", ["CSS", "SQL", "Excel"], 0, "CSS styles the appearance of web pages."],
+        ["Why do developers test sites on phones as well as computers?", ["People use many different screen sizes", "Phones are faster", "It is not needed"], 0, "A site must work on every device."],
+      ],
+    },
+    related: [
+      ["software-developer", "Both write code, for different kinds of products."],
+      ["ux-ui-designer", "Designers and developers build websites together."],
+      ["graphic-designer", "Both create visual communication."],
+    ],
+  },
+  {
+    slug: "mobile-app-developer",
+    name: "Mobile App Developer",
+    category: "technology",
+    summary: "Builds apps for phones and tablets.",
+    overview:
+      "Mobile app developers create apps for Android and iPhone, from games to banking to health tools. They design how the app works, write the code and make sure it is fast, secure and easy to use.",
+    purpose: "To build useful and enjoyable apps for phones and tablets.",
+    dailyWork: "Coding features, testing on devices, fixing bugs and updating apps after feedback.",
+    example:
+      "A fitness company wants an app that counts steps. The developer uses the phone's sensors, builds a clear screen and tests it on many devices.",
+    kw: ["mobile app developer", "app developer", "android", "iphone", "ios", "apps", "mobile apps"],
+    tags: ["tech", "puzzles", "creating", "design", "ideas", "office", "cs", "team", "math"],
+    subj: [
+      ["cs", "Programming languages and app design are core skills.", "Writing code that reacts to a screen tap."],
+      ["math", "Logic and geometry help with layouts and games.", "Calculating how objects move on screen."],
+      ["art", "Good apps are easy and pleasant to use.", "Choosing colours and icons."],
+    ],
+    skills: ["Programming", "User thinking", "Testing"],
+    path: [
+      ["Degree or self-learning", "Many app developers study computer science, but courses and personal projects are also common."],
+      ["Publish your own apps", "Releasing a small app is a powerful way to show your skills."],
+    ],
+    enjoy: [
+      "Creating things people carry in their pocket",
+      "Seeing downloads and feedback",
+      "Opportunities in many industries, or as an independent developer",
+      "A mix of logic and creativity",
+    ],
+    consider: [
+      "Phones and operating systems update frequently",
+      "App stores have strict rules",
+      "Competition among apps is high",
+      "Long hours of testing",
+    ],
+    qual: [
+      ["problem-solving", "Apps must work on many devices and conditions."],
+      ["creative", "Good apps feel simple and fun."],
+      ["detail", "Small bugs can frustrate users."],
+      ["curious", "Platforms and tools change often."],
+    ],
+    day: [
+      ["Plan features", "Decide what the app should do."],
+      ["Design screens", "Sketch how people will move through the app."],
+      ["Write code", "Build the features."],
+      ["Test on devices", "Check it works on different phones."],
+      ["Release updates", "Fix bugs and add improvements."],
+    ],
+    quiz: {
+      title: "Design an app",
+      intro: "Make two decisions as an app developer.",
+      q: [
+        ["Why do developers test apps on several different phones?", ["Screen sizes and systems vary", "Phones are all identical", "It is a waste of time"], 0, "An app must work across many devices."],
+        ["What should a good app do when something goes wrong?", ["Show a clear, helpful message", "Close without a word", "Show random code"], 0, "Clear messages help users recover."],
+      ],
+    },
+    related: [
+      ["software-developer", "Mobile development is a branch of software development."],
+      ["game-developer", "Many mobile games are built with similar skills."],
+      ["ux-ui-designer", "Designers shape the app's look and feel."],
+    ],
+  },
+  {
+    slug: "game-developer",
+    name: "Game Developer",
+    category: "technology",
+    summary: "Programs the code and systems that make video games work.",
+    overview:
+      "Game developers write the code behind video games: movement, physics, scoring, artificial intelligence for enemies and the tools artists and designers use. They work in teams with artists, designers, sound creators and testers.",
+    purpose: "To build games that are fun, smooth and reliable.",
+    dailyWork: "Writing game code, fixing bugs, testing, and working with designers and artists to bring ideas to life.",
+    example:
+      "A team wants a character that can jump and swing. The developer writes the code for the movement and physics, then tests until it feels right.",
+    kw: ["game developer", "game programmer", "video games", "unity", "unreal", "gaming"],
+    tags: ["tech", "puzzles", "creating", "design", "ideas", "team", "cs", "math", "physics", "art"],
+    subj: [
+      ["cs", "Game code is complex and creative.", "Writing code that controls a character."],
+      ["math", "Vectors, geometry and probability are used all the time.", "Calculating the path of a thrown object."],
+      ["physics", "Realistic movement needs physics ideas.", "Simulating gravity and bouncing."],
+    ],
+    skills: ["Programming", "Creativity", "Teamwork"],
+    path: [
+      ["Study or projects", "Many study computer science or game development, but a portfolio of finished games matters a lot."],
+      ["Join a studio or go independent", "Developers start at studios, or release their own games."],
+    ],
+    enjoy: [
+      "Turning ideas into playable worlds",
+      "A mix of logic, art and storytelling",
+      "Working with passionate teams",
+      "Players' feedback and enjoyment",
+    ],
+    consider: [
+      "Very competitive industry",
+      "Crunch periods with long hours before releases",
+      "Games can take years to make",
+      "Some studios are small or unstable",
+    ],
+    qual: [
+      ["creative", "Games need fresh, engaging ideas."],
+      ["problem-solving", "Making things feel right needs experiments."],
+      ["teamwork", "Programmers, artists and designers work closely."],
+      ["patient", "Testing and polishing take time."],
+    ],
+    day: [
+      ["Plan the feature", "Agree with designers what to build."],
+      ["Write code", "Program mechanics and systems."],
+      ["Playtest", "Try the game and note problems."],
+      ["Fix bugs", "Solve crashes and glitches."],
+      ["Review with the team", "Share builds and feedback."],
+    ],
+    quiz: {
+      title: "Game maths",
+      intro: "Use maths like a game developer.",
+      q: [
+        ["A character moves 3 units per second. How far will it move in 5 seconds?", ["15 units", "8 units", "35 units"], 0, "Distance = speed × time = 3 × 5 = 15."],
+        ["Why do developers playtest a game many times?", ["To find bugs and make it more fun", "To use more time", "To make levels harder"], 0, "Testing improves quality and enjoyment."],
+      ],
+    },
+    related: [
+      ["game-designer", "Designers plan the game, developers build it."],
+      ["software-developer", "Game developers use many of the same skills."],
+      ["animator", "Animators bring game characters to life."],
+    ],
+  },
+  {
+    slug: "data-scientist",
+    name: "Data Scientist",
+    category: "technology",
+    summary: "Finds patterns in large amounts of data to answer questions and predict trends.",
+    overview:
+      "Data scientists collect, clean and analyse data, then use statistics and programming to find patterns. They help organisations make decisions, from predicting demand to improving health care.",
+    purpose: "To turn data into useful knowledge.",
+    dailyWork: "Cleaning data, building models, creating charts and explaining results to colleagues.",
+    example:
+      "A transport company wants to predict busy times. The data scientist studies past travel data, builds a model and shows when more buses are needed.",
+    kw: ["data scientist", "data science", "statistics", "machine learning", "analytics", "big data"],
+    tags: ["tech", "data", "puzzles", "research", "ideas", "office", "math", "cs", "science"],
+    subj: [
+      ["math", "Statistics and probability are central.", "Telling a real trend from random noise."],
+      ["cs", "Programming is used to process data.", "Writing code to clean a spreadsheet."],
+      ["languages", "Findings must be explained clearly.", "Writing a short summary for non-experts."],
+    ],
+    skills: ["Statistics", "Programming", "Explaining results"],
+    path: [
+      ["Degree", "Many data scientists study maths, statistics, computer science or a science subject, usually three to four years, and often add a master's degree."],
+      ["Build projects", "Showing analyses you have done on real data is a strong way to get started."],
+    ],
+    enjoy: [
+      "Finding answers hidden in data",
+      "Strong demand across many industries",
+      "A mix of maths, coding and communication",
+      "Working on real problems in health, sport, business or science",
+    ],
+    consider: [
+      "A lot of time cleaning messy data",
+      "Results can be uncertain, so you must stay honest about limits",
+      "Competitive for entry-level roles",
+      "Tools keep changing",
+    ],
+    qual: [
+      ["curious", "Good questions lead to good analysis."],
+      ["detail", "Small errors in data can change results."],
+      ["problem-solving", "Every dataset is a puzzle."],
+      ["communicating", "Findings must be explained simply."],
+    ],
+    day: [
+      ["Understand the question", "Agree what the data needs to answer."],
+      ["Clean the data", "Fix errors and gaps."],
+      ["Analyse", "Use statistics and models to find patterns."],
+      ["Visualise", "Create charts that explain results."],
+      ["Present", "Explain findings and limits."],
+    ],
+    quiz: {
+      title: "Spot the pattern",
+      intro: "Think like a data scientist.",
+      q: [
+        ["Sales were 10, 20, 30, 40 over four months. What is a sensible prediction for the next month?", ["50", "5", "100"], 0, "The pattern increases by 10 each month."],
+        ["Why do data scientists check data for mistakes?", ["Errors can lead to wrong conclusions", "To make datasets bigger", "It is not needed"], 0, "Bad data leads to bad decisions."],
+      ],
+    },
+    related: [
+      ["data-analyst", "Data analysts answer questions with data, often with simpler tools."],
+      ["ai-specialist", "AI relies on data and statistics."],
+      ["statistician", "Statisticians design studies and interpret data."],
+    ],
+  },
+  {
+    slug: "data-analyst",
+    name: "Data Analyst",
+    category: "technology",
+    summary: "Turns numbers into clear reports and charts that help organisations decide.",
+    overview:
+      "Data analysts collect and organise data, find trends and present the answers in reports and dashboards. They work in nearly every industry, from sport to retail to health.",
+    purpose: "To help people make better decisions using data.",
+    dailyWork: "Collecting and cleaning data, using spreadsheets and software, building charts and explaining results.",
+    example:
+      "A shop wants to know which products sell best. The analyst studies sales data, makes charts and shows which items to stock more.",
+    kw: ["data analyst", "analyst", "analytics", "spreadsheets", "dashboards", "reporting"],
+    tags: ["tech", "data", "puzzles", "office", "research", "math", "cs", "business", "team"],
+    subj: [
+      ["math", "Percentages, averages and graphs are everyday tools.", "Calculating average monthly sales."],
+      ["cs", "Spreadsheets and databases store and process data.", "Using formulas to summarise thousands of rows."],
+      ["business", "Understanding the organisation makes analysis useful.", "Linking sales numbers to marketing."],
+    ],
+    skills: ["Spreadsheet and database skills", "Attention to detail", "Presenting clearly"],
+    path: [
+      ["Degree or training", "Many analysts study maths, business, economics or computer science, and short courses can help."],
+      ["Build experience", "Practise on public data and show your reports."],
+    ],
+    enjoy: [
+      "Finding stories hidden in numbers",
+      "Work in almost every industry",
+      "A good route into the data field",
+      "Mix of independent work and teamwork",
+    ],
+    consider: [
+      "Repetitive cleaning and reporting",
+      "Time at a computer",
+      "Pressure to deliver answers quickly",
+      "Sometimes the data does not give a clear answer",
+    ],
+    qual: [
+      ["detail", "Reports must be accurate."],
+      ["curious", "Analysts keep asking 'why?'"],
+      ["organised", "Data has to be tidy and well recorded."],
+      ["communicating", "Charts and words need to be clear."],
+    ],
+    day: [
+      ["Collect data", "Gather information from different sources."],
+      ["Clean it", "Remove errors and duplicates."],
+      ["Analyse", "Find trends and answer questions."],
+      ["Build charts", "Make results easy to understand."],
+      ["Present", "Explain findings to decision-makers."],
+    ],
+    quiz: {
+      title: "Averages",
+      intro: "Practise a core analyst skill.",
+      q: [
+        ["Sales in three days were 20, 30 and 10. What is the average?", ["20", "60", "30"], 0, "(20 + 30 + 10) ÷ 3 = 20."],
+        ["Why do analysts use charts?", ["To make patterns easy to see", "To hide data", "To make reports longer"], 0, "Charts communicate patterns quickly."],
+      ],
+    },
+    related: [
+      ["data-scientist", "Data scientists use more advanced modelling."],
+      ["financial-analyst", "Both analyse numbers to guide decisions."],
+      ["economist", "Both study data to understand trends."],
+    ],
+  },
+  {
+    slug: "ai-specialist",
+    name: "AI Specialist",
+    category: "technology",
+    summary: "Builds and improves artificial intelligence systems that learn from data.",
+    overview:
+      "AI specialists design, train and test systems that can recognise images, understand language, make predictions or help people with tasks. They combine programming, maths and data, and think carefully about safety and fairness.",
+    purpose: "To build AI that is useful, safe and fair.",
+    dailyWork: "Preparing data, training and testing models, checking results for mistakes and bias, and working with developers.",
+    example:
+      "A hospital wants software to help spot problems on scans. The specialist trains a model on examples, tests how often it is right and works with doctors to check it is safe to use.",
+    kw: ["ai specialist", "artificial intelligence", "machine learning", "ai engineer", "deep learning", "chatbots"],
+    tags: ["tech", "data", "puzzles", "research", "ideas", "creating", "cs", "math", "science", "office"],
+    subj: [
+      ["math", "Statistics, algebra and probability underlie machine learning.", "How a model measures its errors."],
+      ["cs", "Programming is how models are built and used.", "Writing code that trains a simple model."],
+      ["languages", "Language models and AI ethics need clear thinking and writing.", "Explaining an AI's limits to users."],
+    ],
+    skills: ["Programming", "Maths", "Responsible thinking"],
+    path: [
+      ["Degree", "Many AI specialists study computer science, maths or data science, often adding a master's degree or specialised courses."],
+      ["Projects and research", "Building your own models and reading research papers help you grow."],
+    ],
+    enjoy: [
+      "Working on one of the most talked-about technologies",
+      "Solving new problems in many fields",
+      "Strong demand and fast progress",
+      "Combining maths, coding and creativity",
+    ],
+    consider: [
+      "Needs a strong grounding in maths and programming",
+      "The field changes very quickly",
+      "Responsibility to avoid bias and harm",
+      "Competitive for top roles",
+    ],
+    qual: [
+      ["curious", "The field moves quickly and keeps surprising people."],
+      ["problem-solving", "Models rarely work well the first time."],
+      ["detail", "Small errors in data can change results."],
+      ["decisions", "Specialists decide when an AI system is safe enough to use."],
+    ],
+    day: [
+      ["Define the goal", "Decide what the system should do."],
+      ["Prepare data", "Collect, clean and label examples."],
+      ["Train the model", "Run training and track how well it learns."],
+      ["Test for errors and bias", "Check performance in many situations."],
+      ["Improve and explain", "Refine the model and document its limits."],
+    ],
+    quiz: {
+      title: "Teach the machine",
+      intro: "Understand how AI learns.",
+      q: [
+        ["What do AI models learn from?", ["Examples in data", "Magic", "Only sleeping"], 0, "Models find patterns in training data."],
+        ["Why do specialists test AI on lots of different examples?", ["To check it works fairly and reliably", "To make it slower", "To confuse it on purpose only"], 0, "Testing reveals weaknesses and bias."],
+      ],
+    },
+    related: [
+      ["data-scientist", "Data scientists prepare and analyse the data AI relies on."],
+      ["software-developer", "AI systems are built with software skills."],
+      ["robotics-engineer", "Robots often use AI to sense and decide."],
+    ],
+  },
+  {
+    slug: "cybersecurity-specialist",
+    name: "Cybersecurity Specialist",
+    category: "technology",
+    summary: "Protects computers, networks and data from attacks and misuse.",
+    overview:
+      "Cybersecurity specialists defend organisations against hackers, scams and data leaks. They monitor systems, fix weaknesses, teach people safe habits and respond quickly when something goes wrong.",
+    purpose: "To keep information and systems safe.",
+    dailyWork: "Monitoring alerts, checking systems for weaknesses, updating protections and helping colleagues stay safe online.",
+    example:
+      "A school notices strange login attempts. The specialist investigates, blocks the attacker, strengthens passwords and teaches staff how to spot phishing emails.",
+    kw: ["cybersecurity", "cyber security", "information security", "security analyst", "hacker defence", "network security"],
+    tags: ["tech", "puzzles", "helping", "office", "data", "team", "cs", "math", "justice"],
+    subj: [
+      ["cs", "Networks, systems and code are what specialists defend.", "How passwords are stored safely."],
+      ["math", "Encryption is built on maths.", "How codes hide information."],
+      ["languages", "Policies and training need clear writing.", "Writing a simple guide to safe passwords."],
+    ],
+    skills: ["Careful thinking", "Technical skills", "Ethics"],
+    path: [
+      ["Degree or training", "Many specialists study computer science or cybersecurity, and industry certificates are common."],
+      ["Gain experience", "Many start in IT support or as analysts, and grow into specialised roles."],
+    ],
+    enjoy: [
+      "Protecting people and organisations",
+      "Constant puzzles and new challenges",
+      "Strong demand for skilled people",
+      "Many specialities to choose from",
+    ],
+    consider: [
+      "Attackers keep changing, so you must keep learning",
+      "Pressure when an attack happens",
+      "On-call or shift work in some jobs",
+      "Strict rules about ethics and legality",
+    ],
+    qual: [
+      ["detail", "Small clues can reveal an attack."],
+      ["problem-solving", "Specialists track down weaknesses."],
+      ["decisions", "Quick, careful choices are needed in an incident."],
+      ["curious", "Security changes with each new technology."],
+    ],
+    day: [
+      ["Review alerts", "Check warnings from monitoring tools."],
+      ["Investigate", "Work out whether something is a real threat."],
+      ["Fix weaknesses", "Update systems and settings."],
+      ["Train people", "Teach safe online habits."],
+      ["Report and improve", "Record what happened and how to prevent it."],
+    ],
+    quiz: {
+      title: "Stay safe online",
+      intro: "Think like a defender.",
+      q: [
+        ["Which password is the strongest?", ["A long mix of random words, numbers and symbols", "password123", "your name"], 0, "Long, unpredictable passwords are harder to crack."],
+        ["An email asks you to click a link and enter your password. What should you do?", ["Be suspicious and check with the sender another way", "Click and enter it at once", "Forward it to friends"], 0, "This is a common phishing trick."],
+      ],
+    },
+    related: [
+      ["penetration-tester", "Testers check systems for weaknesses with permission."],
+      ["it-programmer", "Both work with computer systems."],
+      ["police-officer", "Both help protect people from crime."],
+    ],
+  },
+  {
+    slug: "penetration-tester",
+    name: "Penetration Tester",
+    category: "technology",
+    summary: "An ethical hacker who is paid to test whether systems can be broken into, so they can be fixed.",
+    overview:
+      "Penetration testers, sometimes called ethical hackers, test computer systems with the owner's permission to find weaknesses before real criminals do. They write reports that explain what they found and how to fix it.",
+    purpose: "To find security weaknesses so they can be fixed safely.",
+    dailyWork: "Planning authorised tests, checking systems for weaknesses, writing reports and advising on fixes.",
+    example:
+      "A company asks a tester to check its website. The tester finds a login page that is not protected well, reports it clearly and helps the team fix it.",
+    kw: ["penetration tester", "pentester", "ethical hacker", "ethical hacking", "security tester", "red team"],
+    tags: ["tech", "puzzles", "research", "helping", "justice", "office", "cs", "math", "ideas"],
+    subj: [
+      ["cs", "Understanding how systems work shows where they can fail.", "How a website checks a login."],
+      ["math", "Cryptography and logic are important.", "How encryption protects messages."],
+      ["languages", "Clear reports make fixes happen.", "Writing a report that managers understand."],
+    ],
+    skills: ["Technical curiosity", "Ethics", "Report writing"],
+    path: [
+      ["Study or training", "Many testers study computer science or cybersecurity and gain recognised industry certificates."],
+      ["Experience", "Most start in IT or security roles and build up to testing, always working legally and with written permission."],
+    ],
+    enjoy: [
+      "Solving security puzzles for a positive purpose",
+      "Always learning new techniques",
+      "Respected, in-demand skills",
+      "Working in consultancies, companies or as a specialist freelancer",
+    ],
+    consider: [
+      "Testing is only legal with the owner's permission",
+      "Needs deep technical knowledge",
+      "Writing reports and meetings are a big part of the work",
+      "Deadlines and pressure from clients",
+    ],
+    qual: [
+      ["curious", "Testers ask how a system could fail."],
+      ["detail", "Small weaknesses can matter."],
+      ["independent", "Much of the work is focused individual analysis."],
+      ["decisions", "Testers follow ethical and legal rules carefully."],
+    ],
+    day: [
+      ["Agree the scope", "Get written permission and decide what to test."],
+      ["Test systems", "Look for weaknesses within agreed limits."],
+      ["Record findings", "Note exactly what was found."],
+      ["Write the report", "Explain risks and fixes clearly."],
+      ["Retest", "Check the fixes worked."],
+    ],
+    quiz: {
+      title: "Ethical hacker's rules",
+      intro: "Understand the ethics behind security testing.",
+      q: [
+        ["What must a penetration tester have before starting a test?", ["Written permission from the system's owner", "Nothing", "A secret plan"], 0, "Authorisation is what makes testing legal and ethical."],
+        ["Why do testers write a clear report?", ["So the owner can fix the weaknesses", "To impress friends", "To keep the weaknesses secret"], 0, "The aim is to improve security."],
+      ],
+    },
+    related: [
+      ["cybersecurity-specialist", "Specialists defend systems all year, testers check them."],
+      ["software-developer", "Both understand code, one builds it and one tests it."],
+      ["it-programmer", "Both work closely with systems and code."],
+    ],
+  },
+  {
+    slug: "cloud-engineer",
+    name: "Cloud Engineer",
+    category: "technology",
+    summary: "Builds and manages the online computing systems that run apps and websites.",
+    overview:
+      "Cloud engineers set up and look after the servers, storage and networks that run on the internet. They make sure services are fast, secure and available, from streaming video to online banking.",
+    purpose: "To keep online services running reliably and securely.",
+    dailyWork: "Setting up cloud systems, automating tasks, monitoring performance and fixing problems.",
+    example:
+      "An online shop gets busy during a sale. The engineer sets up the system to add more computing power automatically so the website does not slow down.",
+    kw: ["cloud engineer", "cloud computing", "aws", "azure", "servers", "infrastructure"],
+    tags: ["tech", "puzzles", "office", "team", "ideas", "cs", "math", "data"],
+    subj: [
+      ["cs", "Networks, servers and programming are everyday tools.", "Writing a script that starts new servers."],
+      ["math", "Logic and capacity planning use numbers.", "Estimating how much storage is needed."],
+      ["languages", "Documentation and teamwork need clear writing.", "Explaining a system to new colleagues."],
+    ],
+    skills: ["Technical problem-solving", "Automation", "Staying calm under pressure"],
+    path: [
+      ["Study and certificates", "Many cloud engineers study computer science or IT and earn cloud certificates."],
+      ["Experience", "Many start in IT support or software roles and grow into cloud roles."],
+    ],
+    enjoy: [
+      "Working with technology that powers the internet",
+      "Strong demand and career growth",
+      "Mixing coding with system design",
+      "Remote working possibilities in some roles",
+    ],
+    consider: [
+      "On-call duties for urgent problems in some jobs",
+      "Technology changes fast",
+      "Pressure when systems fail",
+      "Complex systems can be hard to understand",
+    ],
+    qual: [
+      ["problem-solving", "Finding why a system is slow is a detective job."],
+      ["organised", "Many systems must be documented and tracked."],
+      ["patient", "Fixing large systems takes careful steps."],
+      ["teamwork", "Cloud engineers work with developers and security teams."],
+    ],
+    day: [
+      ["Check systems", "Review dashboards and alerts."],
+      ["Improve automation", "Write scripts to save manual work."],
+      ["Set up new services", "Create servers and storage."],
+      ["Fix issues", "Investigate slowdowns or failures."],
+      ["Document", "Record how things work."],
+    ],
+    quiz: {
+      title: "Scale it up",
+      intro: "Think about running an online service.",
+      q: [
+        ["Why do cloud systems add more servers when traffic grows?", ["So the website stays fast", "To use more electricity", "To confuse users"], 0, "More servers share the load."],
+        ["Why are backups important?", ["They let you restore data if something goes wrong", "They make computers slower", "They are not needed"], 0, "Backups protect against data loss."],
+      ],
+    },
+    related: [
+      ["devops-engineer", "Both keep systems running and software flowing."],
+      ["cybersecurity-specialist", "Security is a key part of cloud systems."],
+      ["software-developer", "Cloud engineers support developers' work."],
+    ],
+  },
+  {
+    slug: "devops-engineer",
+    name: "DevOps Engineer",
+    category: "technology",
+    summary: "Connects software development and operations so new features reach users quickly and safely.",
+    overview:
+      "DevOps engineers build the tools and processes that test, release and monitor software automatically. They help developers deliver updates often without breaking things, and fix problems fast when they happen.",
+    purpose: "To get software to users quickly, safely and reliably.",
+    dailyWork: "Automating tests and releases, monitoring systems, fixing problems and improving processes with developers.",
+    example:
+      "A team releases updates every week. The DevOps engineer sets up automatic tests and a pipeline that publishes changes safely and warns the team if anything breaks.",
+    kw: ["devops", "devops engineer", "ci cd", "automation", "site reliability", "release engineer"],
+    tags: ["tech", "puzzles", "office", "team", "ideas", "cs", "math", "data"],
+    subj: [
+      ["cs", "Scripting, systems and software are central.", "Writing a script that runs tests automatically."],
+      ["math", "Logic helps with automation and reliability.", "Calculating how long a release will take."],
+      ["languages", "Clear communication helps with fast-moving teams.", "Writing steps for a team to follow in an emergency."],
+    ],
+    skills: ["Automation", "Troubleshooting", "Teamwork"],
+    path: [
+      ["Study or experience", "DevOps engineers often come from computer science degrees or from developer or IT jobs."],
+      ["Certificates and projects", "Industry certificates and personal projects help show skills."],
+    ],
+    enjoy: [
+      "Making teams faster and software more reliable",
+      "Solving system puzzles",
+      "Strong demand and good career growth",
+      "Mixing coding and operations",
+    ],
+    consider: [
+      "On-call duties for urgent problems in some jobs",
+      "Rapid changes in tools",
+      "Pressure when systems go down",
+      "Needs broad technical knowledge",
+    ],
+    qual: [
+      ["problem-solving", "Fixing a broken release pipeline needs clear thinking."],
+      ["organised", "Many moving parts must be tracked."],
+      ["teamwork", "DevOps connects different teams."],
+      ["patient", "Finding why something fails can take time."],
+    ],
+    day: [
+      ["Review releases", "Check how the latest updates went."],
+      ["Improve automation", "Make tests and deployments smoother."],
+      ["Monitor systems", "Watch alerts and performance."],
+      ["Fix problems", "Respond to failures quickly."],
+      ["Share with the team", "Explain changes and lessons."],
+    ],
+    quiz: {
+      title: "Release safely",
+      intro: "Think about releasing software.",
+      q: [
+        ["Why do teams run automatic tests before releasing software?", ["To catch mistakes early", "To slow things down", "To make code longer"], 0, "Automatic tests find problems quickly."],
+        ["What should happen if a new release causes errors?", ["Roll back to the previous working version", "Ignore the errors", "Delete all code"], 0, "Rolling back restores a stable system quickly."],
+      ],
+    },
+    related: [
+      ["cloud-engineer", "Both manage infrastructure that runs software."],
+      ["software-developer", "DevOps supports developers' daily work."],
+      ["cybersecurity-specialist", "Both help keep systems safe."],
+    ],
+  },
+  {
+    slug: "ux-ui-designer",
+    name: "UX/UI Designer",
+    category: "technology",
+    summary: "Designs apps and websites so they are easy, clear and enjoyable to use.",
+    overview:
+      "UX (user experience) and UI (user interface) designers decide how apps and websites look and how people move through them. They research what users need, sketch ideas, test with real people and work with developers.",
+    purpose: "To make digital products easy and pleasant to use.",
+    dailyWork: "Researching users, sketching screens, building prototypes, testing and improving designs.",
+    example:
+      "A bus app confuses people. The designer watches users try to buy a ticket, simplifies the screens and tests again until most people finish quickly.",
+    kw: ["ux designer", "ui designer", "ux ui", "user experience", "user interface", "app design", "designer", "product design"],
+    tags: ["design", "creating", "art", "tech", "people", "ideas", "studio", "research", "team"],
+    subj: [
+      ["art", "Layout, colour and typography shape every screen.", "Choosing colours that are easy to read."],
+      ["cs", "Understanding how products work helps designers work with developers.", "Knowing what is simple or hard to build."],
+      ["languages", "Clear words guide users.", "Writing a button label that is obvious."],
+    ],
+    skills: ["Visual design", "Empathy for users", "Testing ideas"],
+    path: [
+      ["Degree, course or portfolio", "Designers come from design, computing, psychology and other backgrounds, and a strong portfolio matters most."],
+      ["Experience", "Many start in junior design roles or internships and learn from teams."],
+    ],
+    enjoy: [
+      "Making everyday technology easier for people",
+      "A mix of creativity, psychology and technology",
+      "Strong demand in tech companies",
+      "Seeing your designs used by many people",
+    ],
+    consider: [
+      "Feedback can be subjective and designs change often",
+      "Balancing design ideals with deadlines and budgets",
+      "Competitive for entry-level roles",
+      "A lot of time on screens",
+    ],
+    qual: [
+      ["creative", "Good solutions often need fresh ideas."],
+      ["curious", "Designers ask users why they do things."],
+      ["detail", "Spacing, size and wording change usability."],
+      ["communicating", "Designers explain choices to developers and managers."],
+    ],
+    day: [
+      ["Research users", "Talk with people and watch how they use products."],
+      ["Sketch ideas", "Draw quick versions of screens."],
+      ["Build a prototype", "Make a clickable version."],
+      ["Test with users", "Watch and listen for problems."],
+      ["Improve", "Update the design and hand over to developers."],
+    ],
+    quiz: {
+      title: "Easy to use?",
+      intro: "Make two design decisions.",
+      q: [
+        ["Why do designers test with real users?", ["To discover problems designers cannot see themselves", "To make designs longer", "To prove they are right"], 0, "Real users reveal confusing parts."],
+        ["Which button label is clearest?", ["Buy ticket", "Go", "Click"], 0, "Clear, specific labels tell users what will happen."],
+      ],
+    },
+    related: [
+      ["graphic-designer", "Both use visual design skills."],
+      ["web-developer", "Designers and web developers build sites together."],
+      ["product-designer", "Both design things for real users."],
+    ],
+  },
+];

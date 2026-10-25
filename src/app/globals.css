@@ -1,20 +1,77 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #17233b;
-  --color-violet: #7564e8;
-  --color-lavender: #f0edff;
-  --color-offwhite: #f8f9fc;
-  --color-ink: #202638;
+  --color-navy: #29224f;
+  --color-violet: #6c63ff;
+  --color-violet-dark: #4b42d6;
+  --color-lavender: #ece8ff;
+  --color-offwhite: #f7f5ff;
+  --color-ink: #353060;
   --color-success: #2d9d78;
+  --color-lime: #a8f06a;
+  --color-coral: #ff826e;
+  --color-sky: #75d9f5;
+  --color-butter: #fff0b8;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float 9s ease-in-out infinite;
+  --animate-bob: bob 3s ease-in-out infinite;
+  --animate-rise: rise 0.5s ease-out both;
+  --animate-fill: fill 2.4s ease-out forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-14px) rotate(3deg); }
+  }
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes fill {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+}
+
+@theme inline {
+  --font-heading: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-violet);
+  outline: 3px solid var(--color-violet);
   outline-offset: 2px;
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition duration-200 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-violet text-white shadow-md shadow-violet/25 hover:-translate-y-0.5 hover:bg-violet-dark hover:shadow-lg;
+  }
+  .btn-secondary {
+    @apply bg-white text-navy ring-1 ring-navy/15 hover:-translate-y-0.5 hover:bg-lavender;
+  }
+  .card {
+    @apply rounded-3xl bg-white p-6 shadow-sm ring-1 ring-navy/5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
