@@ -27,6 +27,16 @@ const ratingWords = ["", "Not great", "Could be better", "It's okay", "Pretty go
 
 type Status = "idle" | "sending" | "sent" | "error";
 
+/*
+  Privacy: students are asked not to share contact details, but in case they
+  do, email addresses and phone numbers are removed before anything is sent.
+*/
+export function removeContactDetails(text: string) {
+  return text
+    .replace(/[\w.+-]+@[\w-]+(\.[\w-]+)+/g, "[email removed]")
+    .replace(/(\+?\(?\d[\d\s().-]{6,}\d)/g, "[number removed]");
+}
+
 export default function FeedbackForm({
   onDone,
   autoFocus = false,
@@ -64,7 +74,7 @@ export default function FeedbackForm({
         "bot-field": honey,
         rating: String(rating),
         liked: choices.join(", "),
-        message: message.trim(),
+        message: removeContactDetails(message.trim()),
         page: window.location.pathname,
       }).toString();
       const res = await fetch(FORM_URL, {
@@ -209,7 +219,8 @@ export default function FeedbackForm({
           className="mt-2 w-full rounded-2xl border border-navy/15 bg-white p-3 outline-none focus:border-violet"
         />
         <p className="mt-1 text-xs text-ink/60">
-          Please don&apos;t write your full name, school or contact details. {message.length}/1000
+          Please don&apos;t write your full name, school or contact details. Email addresses and
+          phone numbers are removed automatically. {message.length}/1000
         </p>
       </div>
 

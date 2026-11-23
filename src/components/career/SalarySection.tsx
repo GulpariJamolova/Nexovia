@@ -7,16 +7,17 @@ import type { Career, CountryCode, SalaryLevel } from "@/types";
 
 const levelLabel: Record<SalaryLevel, string> = {
   early: "Early career",
-  experienced: "Experienced professional",
-  senior: "Senior or specialised role",
+  experienced: "Experienced",
+  senior: "Senior / leadership",
   typical: "Typical range",
 };
 
 const basisLabel = {
-  gross: "These figures are gross (before tax).",
-  net: "These figures are take-home (after tax).",
-  unspecified: "The source does not say whether these figures are before or after tax.",
+  gross: "Gross (before deductions).",
+  net: "Take-home (after deductions).",
+  unspecified: "The source doesn't say whether figures are before or after deductions.",
 };
+const periodLabel = { month: "Monthly", year: "Yearly" };
 
 const fmt = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 
@@ -56,21 +57,59 @@ export default function SalarySection({
           <h3 className="font-heading text-xl font-bold text-navy">
             Approximate salary in {countryName}
           </h3>
-          <p className="text-sm text-ink/80">
-            In {info.currency}, per {info.period}. {basisLabel[info.basis]}
-          </p>
-          <div className="mt-4 grid gap-4 md:grid-cols-3">
-            {info.bands.map((b) => (
-              <div key={b.level} className="card">
-                <p className="text-sm font-semibold text-ink/70">{levelLabel[b.level]}</p>
-                <p className="mt-2 font-heading text-2xl font-bold text-navy">
-                  {fmt.format(b.min)} – {fmt.format(b.max)}
-                </p>
-                <p className="text-sm text-ink/70">{info.currency} per {info.period}</p>
+
+          <dl className="mt-3 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+            <div>
+              <dt className="inline font-semibold text-navy">Period: </dt>
+              <dd className="inline text-ink/85">
+                {periodLabel[info.period]} ({info.currency} per {info.period})
+              </dd>
+            </div>
+            {info.dataDate && (
+              <div>
+                <dt className="inline font-semibold text-navy">Data from: </dt>
+                <dd className="inline text-ink/85">{info.dataDate}</dd>
               </div>
-            ))}
+            )}
+            <div>
+              <dt className="inline font-semibold text-navy">Checked: </dt>
+              <dd className="inline text-ink/85">{info.lastChecked}</dd>
+            </div>
+          </dl>
+
+          <div className="mt-4 overflow-hidden rounded-3xl bg-white ring-1 ring-navy/10">
+            <table className="w-full text-left">
+              <caption className="sr-only">
+                Salary ranges for {name} in {countryName}, {info.currency} per {info.period}
+              </caption>
+              <thead className="bg-lavender/60 text-xs font-bold uppercase tracking-[0.12em] text-ink/70">
+                <tr>
+                  <th scope="col" className="px-5 py-3">Level</th>
+                  <th scope="col" className="px-5 py-3">Job title in the source</th>
+                  <th scope="col" className="px-5 py-3 text-right">
+                    {info.currency} per {info.period}
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-navy/10">
+                {info.bands.map((b, i) => (
+                  <tr key={i}>
+                    <td className="px-5 py-4 text-sm font-semibold text-ink/80">{levelLabel[b.level]}</td>
+                    <td className="px-5 py-4 text-sm text-ink/85">{b.title ?? name}</td>
+                    <td className="whitespace-nowrap px-5 py-4 text-right font-heading text-lg font-bold text-navy">
+                      {fmt.format(b.min)} – {fmt.format(b.max)}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-          <p className="mt-4 text-sm text-ink/80">
+
+          <p className="mt-3 text-sm text-ink/80">
+            {info.note ? `${info.note} ` : ""}
+            {basisLabel[info.basis]}
+          </p>
+          <p className="mt-2 text-sm text-ink/80">
             Source:{" "}
             <a
               href={info.sourceUrl}
@@ -79,8 +118,7 @@ export default function SalarySection({
               className="inline-flex items-center gap-1 font-semibold text-violet-dark underline"
             >
               {info.sourceName} <ExternalLink size={14} aria-hidden="true" />
-            </a>{" "}
-            (checked {info.lastChecked})
+            </a>
           </p>
         </div>
       ) : (

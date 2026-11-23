@@ -15,7 +15,12 @@ export type QualityId =
 export type CountryCode = "AE" | "UZ" | "SA" | "GB" | "US";
 export type SalaryLevel = "early" | "experienced" | "senior" | "typical";
 
-export type SalaryBand = { level: SalaryLevel; min: number; max: number };
+export type SalaryBand = {
+  level: SalaryLevel;
+  min: number;
+  max: number;
+  title?: string; // the exact job title used by the source, e.g. "Senior Accountant"
+};
 
 export type SalaryInfo = {
   currency: string; // e.g. "AED"
@@ -25,6 +30,8 @@ export type SalaryInfo = {
   sourceName: string;
   sourceUrl: string;
   lastChecked: string; // e.g. "2026-10"
+  dataDate?: string; // when the source's figures date from, e.g. "Q4 2024"
+  note?: string; // what the figures include, e.g. "Total fixed monthly package"
 };
 
 export type ChallengeStep = {

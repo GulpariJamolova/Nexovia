@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Check, Info, Lightbulb } from "lucide-react";
 import CategoryArt from "@/components/ui/CategoryArt";
+import FloatingWords from "@/components/career/FloatingWords";
 import { QualityIcon, SubjectIcon } from "@/components/ui/Icons";
 import { categories } from "@/data/categories";
 import { qualities } from "@/data/qualities";
@@ -27,20 +28,46 @@ export function CareerIntro({ career }: { career: Career }) {
         <ArrowLeft size={16} /> All careers
       </Link>
 
-      <div className="mt-6 grid items-center gap-8 md:grid-cols-2">
+      <div className="mt-6 grid items-center gap-8 md:grid-cols-[1.15fr_1fr]">
         <div>
-          <span className="rounded-full bg-lavender px-3 py-1 text-xs font-bold uppercase tracking-wide text-navy">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-violet-dark">
             {categories[career.category].label}
-          </span>
-          <h1 className="mt-3 font-heading text-4xl font-bold text-navy sm:text-5xl">{career.name}</h1>
-          <p className="mt-3 text-lg text-ink/85">{career.overview}</p>
-          <p className="mt-4 rounded-2xl bg-lavender p-4 text-ink/90">
-            <strong className="text-navy">Main purpose: </strong>
+            <span className="mx-2 text-ink/30">/</span>
+            Career profile
+          </p>
+          <h1 className="mt-3 font-heading text-4xl font-bold tracking-tight text-navy sm:text-5xl">
+            {career.name}
+          </h1>
+          <p className="mt-4 text-xl leading-relaxed text-navy/90">{career.summary}</p>
+          <p className="mt-4 leading-relaxed text-ink/85">{career.overview}</p>
+          <p className="mt-5 border-l-4 border-violet pl-4 text-ink/90">
+            <span className="block text-xs font-bold uppercase tracking-[0.14em] text-violet-dark">
+              Main purpose
+            </span>
             {career.purpose}
           </p>
         </div>
-        <CategoryArt category={career.category} className="h-64 w-full rounded-[2rem] sm:h-80" />
+        <FloatingWords career={career} />
       </div>
+
+      <dl className="mt-10 grid gap-6 border-y border-navy/10 py-6 sm:grid-cols-3">
+        <div>
+          <dt className="text-xs font-bold uppercase tracking-[0.14em] text-ink/60">Key subjects</dt>
+          <dd className="mt-1.5 font-semibold text-navy">
+            {career.subjects.map((s) => subjects[s.id].name).join(" · ")}
+          </dd>
+        </div>
+        <div>
+          <dt className="text-xs font-bold uppercase tracking-[0.14em] text-ink/60">Core skills</dt>
+          <dd className="mt-1.5 font-semibold text-navy">{career.skills.join(" · ")}</dd>
+        </div>
+        <div>
+          <dt className="text-xs font-bold uppercase tracking-[0.14em] text-ink/60">Typical path</dt>
+          <dd className="mt-1.5 font-semibold text-navy">
+            {career.pathway.map((p) => p.title).join(" → ")}
+          </dd>
+        </div>
+      </dl>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         <div className="card">

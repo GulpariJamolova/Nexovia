@@ -1,9 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Search, X } from "lucide-react";
+import Link from "next/link";
+import { Search, SearchX, Sparkles, X } from "lucide-react";
 import CareerCard from "./CareerCard";
-import { careers, searchCareers } from "@/lib/careers";
+import { careers, findCareers } from "@/lib/careers";
 import { categories } from "@/data/categories";
 import type { CategoryId } from "@/types";
 
@@ -19,9 +20,10 @@ const countByCategory = careers.reduce<Record<string, number>>((acc, c) => {
 export default function CareerExplorer() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<CategoryId | "all">("all");
-  const results = useMemo(() => searchCareers(query, category), [query, category]);
+  const outcome = useMemo(() => findCareers(query, category), [query, category]);
+  const { results, status } = outcome;
   // With no search and no filter, show careers grouped under category headings.
-  const showGroups = query.trim() === "" && category === "all";
+  const showGroups = status === "all" && category === "all";
 
   const chip = (on: boolean) =>
     `rounded-full px-4 py-2 text-sm font-semibold transition active:scale-[0.97] ${
@@ -74,8 +76,20 @@ export default function CareerExplorer() {
       </div>
 
       <p className="mt-6 text-sm text-ink/70" aria-live="polite">
-        {results.length} {results.length === 1 ? "career" : "careers"} found
+        {results.length > 0 || status === "all"
+          ? `${results.length} ${results.length === 1 ? "career" : "careers"} found`
+          : ""}
       </p>
+
+      {status === "corrected" && outcome.correctedQuery && (
+        <p className="mt-2 flex items-start gap-2 rounded-2xl bg-lavender p-3 text-sm text-ink/90">
+          <Sparkles size={16} className="mt-0.5 shrink-0 text-violet-dark" aria-hidden="true" />
+          <span>
+            Showing results for <strong className="text-navy">{outcome.correctedQuery}</strong>.
+            You typed “{query.trim()}”.
+          </span>
+        </p>
+      )}
 
       {results.length > 0 ? (
         showGroups ? (
@@ -103,27 +117,94 @@ export default function CareerExplorer() {
           </div>
         )
       ) : (
-        <div className="mt-4">
-          <div className="rounded-3xl bg-lavender p-8 text-center">
-            <h2 className="font-heading text-xl font-bold text-navy">
-              We don&apos;t have {query ? `“${query}”` : "that"} yet
-            </h2>
-            <p className="mt-2 text-ink/80">
-              Nexovia currently covers {careers.length} careers. Try a different word, clear the filter, or explore one of these:
-            </p>
-            <div className="mt-4 flex flex-wrap justify-center gap-3">
-              <button onClick={() => { setQuery(""); setCategory("all"); }} className="btn btn-secondary">
-                Show all careers
-              </button>
-            </div>
-          </div>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {careers.slice(0, 3).map((c) => (
-              <CareerCard key={c.slug} career={c} compact />
-            ))}
-          </div>
+        <NoResults
+          status={status}
+          query={query.trim()}
+          categoryLabel={category === "all" ? "" : categories[category].label}
+          onReset={() => {
+            setQuery("");
+            setCategory("all");
+          }}
+          onAllCategories={() => setCategory("all")}
+          onTry={(s) => setQuery(s)}
+        />
+      )}
+    </div>
+  );
+}
+
+const tryWords = ["Pilot", "Nurse", "Engineer", "Designer"];
+
+function NoResults({
+  status,
+  query,
+  categoryLabel,
+  onReset,
+  onAllCategories,
+  onTry,
+}: {
+  status: string;
+  query: string;
+  categoryLabel: string;
+  onReset: () => void;
+  onAllCategories: () => void;
+  onTry: (s: string) => void;
+}) {
+  let title: string;
+  let text: React.ReactNode;
+  if (status === "gibberish") {
+    title = "Hmm, that doesn't look like a career";
+    text = "Try typing a job title, such as “pilot” or “nurse”, or a subject you like, such as “biology”.";
+  } else if (status === "short") {
+    title = "Keep typing…";
+    text = "Type a bit more of the career name and the results will appear.";
+  } else if (status === "elsewhere") {
+    title = `No matches in ${categoryLabel}`;
+    text = "There are careers that match in other categories.";
+  } else {
+    title = `We don't have “${query}” yet`;
+    text = (
+      <>
+        It sounds like a real career, but Nexovia doesn&apos;t have a page for it yet, and we
+        won&apos;t make one up. Try a similar word, browse the categories, or{" "}
+        <Link href="/feedback" className="font-semibold text-violet-dark underline">
+          tell us to add it
+        </Link>
+        .
+      </>
+    );
+  }
+
+  return (
+    <div className="mt-4 rounded-3xl bg-lavender p-8 text-center" role="status">
+      <SearchX className="mx-auto text-violet-dark" size={32} aria-hidden="true" />
+      <h2 className="mt-3 font-heading text-xl font-bold text-navy">{title}</h2>
+      <p className="mx-auto mt-2 max-w-xl text-ink/80">{text}</p>
+      {status === "gibberish" && (
+        <div className="mt-4 flex flex-wrap justify-center gap-2">
+          {tryWords.map((w) => (
+            <button
+              key={w}
+              type="button"
+              onClick={() => onTry(w)}
+              className="rounded-full bg-butter px-3 py-1 text-sm font-medium text-navy hover:brightness-95"
+            >
+              {w}
+            </button>
+          ))}
         </div>
       )}
+      <div className="mt-5 flex flex-wrap justify-center gap-3">
+        {status === "elsewhere" ? (
+          <button type="button" onClick={onAllCategories} className="btn btn-primary">
+            Search all categories
+          </button>
+        ) : (
+          <button type="button" onClick={onReset} className="btn btn-secondary">
+            Show all {careers.length} careers
+          </button>
+        )}
+      </div>
     </div>
   );
 }
