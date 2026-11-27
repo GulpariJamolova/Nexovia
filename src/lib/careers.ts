@@ -106,7 +106,7 @@ const wordsIn = (text: string) =>
   text.toLowerCase().replace(/[^a-z0-9\s]/g, " ").split(/\s+/).filter((w) => w.length >= 3);
 
 // Every word that appears in our career texts (used to recognise real words).
-const vocabulary = [...new Set([...haystacks.values()].flatMap(wordsIn))];
+export const vocabulary = [...new Set([...haystacks.values()].flatMap(wordsIn))];
 
 // Words used for spelling fixes: only career names and keywords, most common
 // first, so "enginer" becomes "engineer" rather than a rarer word.

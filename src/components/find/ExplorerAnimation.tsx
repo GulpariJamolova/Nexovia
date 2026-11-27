@@ -1,51 +1,34 @@
-import { Code, FlaskConical, Palette, Ruler, Scale, Stethoscope } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
-
-const floaters: { Icon: LucideIcon; pos: string; color: string; delay: string }[] = [
-  { Icon: Stethoscope, pos: "left-0 top-6", color: "text-coral", delay: "0s" },
-  { Icon: Ruler, pos: "right-0 top-2", color: "text-violet", delay: "0.5s" },
-  { Icon: Code, pos: "-left-2 bottom-16", color: "text-navy", delay: "1s" },
-  { Icon: Scale, pos: "-right-2 bottom-20", color: "text-coral", delay: "0.3s" },
-  { Icon: Palette, pos: "left-10 -bottom-1", color: "text-violet", delay: "0.8s" },
-  { Icon: FlaskConical, pos: "right-8 -bottom-2", color: "text-navy", delay: "1.3s" },
-];
+/*
+  Simple stamp-style picture for the "results ready" screen: a plum square with
+  a hand-drawn check mark, a few small career words and a soft shadow offset,
+  like a printed card. No mascot, no floating icons.
+*/
+const words = ["Subjects", "Skills", "Interests", "Pathways"];
 
 export default function ExplorerAnimation() {
   return (
-    <div className="relative mx-auto h-64 w-64 sm:h-72 sm:w-72" aria-hidden="true">
-      <div className="absolute inset-4 rounded-full bg-lavender" />
-
-      {floaters.map(({ Icon, pos, color, delay }, i) => (
-        <span
-          key={i}
-          style={{ animationDelay: delay }}
-          className={`absolute ${pos} animate-float flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-lg ${color}`}
-        >
-          <Icon size={22} />
-        </span>
-      ))}
-
-      <svg viewBox="0 0 200 200" className="absolute inset-0 animate-bob" fill="none">
-        {/* backpack */}
-        <rect x="56" y="98" width="32" height="50" rx="10" className="fill-coral" />
-        {/* legs and shoes */}
-        <rect x="82" y="146" width="14" height="24" rx="6" className="fill-navy" />
-        <rect x="104" y="146" width="14" height="24" rx="6" className="fill-navy" />
-        <ellipse cx="86" cy="172" rx="13" ry="6" className="fill-lime" />
-        <ellipse cx="114" cy="172" rx="13" ry="6" className="fill-lime" />
-        {/* body */}
-        <rect x="72" y="92" width="56" height="60" rx="22" className="fill-violet" />
-        {/* arm + magnifier */}
-        <path d="M124 108l24-16" className="stroke-violet" strokeWidth="10" strokeLinecap="round" />
-        <circle cx="158" cy="78" r="15" className="fill-sky/50 stroke-navy" strokeWidth="5" />
-        <path d="M148 90l-8 8" className="stroke-navy" strokeWidth="5" strokeLinecap="round" />
-        {/* head */}
-        <circle cx="100" cy="68" r="26" fill="#FFD7B5" />
-        <path d="M74 66C74 42 126 42 126 66 118 54 82 54 74 66z" className="fill-navy" />
-        <circle cx="91" cy="72" r="3" className="fill-navy" />
-        <circle cx="109" cy="72" r="3" className="fill-navy" />
-        <path d="M92 82q8 8 16 0" className="stroke-navy" strokeWidth="3" strokeLinecap="round" />
-      </svg>
+    <div className="mx-auto w-64 sm:w-72" aria-hidden="true">
+      <div className="relative">
+        <div className="absolute inset-0 translate-x-2 translate-y-2 rounded bg-navy/25" />
+        <div className="relative flex h-44 flex-col items-center justify-center rounded bg-plum sm:h-52">
+          <svg viewBox="0 0 80 64" className="h-20 w-24 sm:h-24 sm:w-28" fill="none">
+            <path
+              d="M8 34 C16 40 22 48 28 56 C40 36 56 18 74 6"
+              stroke="#ffcf6e"
+              strokeWidth="9"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              pathLength="1"
+              className="animate-check"
+            />
+          </svg>
+        </div>
+      </div>
+      <p className="mt-5 flex flex-wrap justify-center gap-x-3 gap-y-1 font-heading text-sm font-bold uppercase tracking-widest text-navy/70">
+        {words.map((w) => (
+          <span key={w}>{w}</span>
+        ))}
+      </p>
     </div>
   );
 }

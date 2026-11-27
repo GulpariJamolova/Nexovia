@@ -1,4 +1,5 @@
 import type { CountryCode, SalaryBand, SalaryInfo } from "@/types";
+import { researchedSalaries } from "@/data/salaries-research";
 
 /*
   Approximate UAE salary ranges. Only careers with a source we could actually
@@ -55,6 +56,7 @@ const mp = (bands: SalaryBand[]): Partial<Record<CountryCode, SalaryInfo>> => ({
 });
 
 export const salaryOverrides: Record<string, Partial<Record<CountryCode, SalaryInfo>>> = {
+  ...researchedSalaries,
   /* ---------- Michael Page UAE Salary Guide 2026 ---------- */
   lawyer: mp([
     { level: "early", min: 30000, max: 60000, title: "Newly Qualified (law firm)" },

@@ -52,6 +52,7 @@ export default function FeedbackForm({
   const [honey, setHoney] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [problem, setProblem] = useState("");
+  const [errorCode, setErrorCode] = useState("");
 
   const shown = hover || rating;
 
@@ -84,7 +85,8 @@ export default function FeedbackForm({
       });
       if (!res.ok) throw new Error(`Status ${res.status}`);
       setStatus("sent");
-    } catch {
+    } catch (err) {
+      setErrorCode(err instanceof Error ? err.message : "No connection");
       setStatus("error");
     }
   }
@@ -241,7 +243,7 @@ export default function FeedbackForm({
         <p role="alert" className="mt-4 rounded-2xl bg-coral/15 p-3 text-sm text-navy">
           Sorry, we couldn&apos;t send your feedback just now, so it was <strong>not</strong> saved.
           Please check your internet and try again. (If you are running the site on your own
-          computer, feedback only works on the live website.)
+          computer, feedback only works on the live website.) Error: {errorCode}
         </p>
       )}
 

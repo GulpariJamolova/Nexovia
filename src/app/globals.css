@@ -1,12 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #29224f;
-  --color-violet: #6c63ff;
-  --color-violet-dark: #4b42d6;
-  --color-lavender: #ece8ff;
-  --color-offwhite: #f7f5ff;
-  --color-ink: #353060;
+  /* O*NET-style palette: strong blue headings, white pages, light blue-grey panels */
+  --color-navy: #0b4a8a;
+  --color-violet: #1d65b3;
+  --color-violet-dark: #0b3d73;
+  --color-lavender: #e8eff7;
+  --color-offwhite: #ffffff;
+  --color-ink: #2b3440;
+  --color-plum: #3f0d52;
   --color-success: #2d9d78;
   --color-lime: #a8f06a;
   --color-coral: #ff826e;
@@ -19,12 +21,19 @@
   --animate-rise: rise 0.5s ease-out both;
   --animate-fill: fill 2.4s ease-out forwards;
   --animate-drift: drift 8s ease-in-out infinite;
+  --animate-check: check 0.9s ease-out 0.2s both;
+  --radius-2xl: 0.25rem;
+  --radius-3xl: 0.375rem;
 
   @keyframes drift {
-    0%, 100% { transform: translateY(0); opacity: 0.55; }
-    50% { transform: translateY(-8px); opacity: 1; }
+    0%, 100% { transform: translate(0, 0); opacity: 0.8; }
+    50% { transform: translate(6px, -9px); opacity: 1; }
   }
 
+  @keyframes check {
+    from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    to { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  }
   @keyframes float {
     0%, 100% { transform: translateY(0) rotate(0deg); }
     50% { transform: translateY(-14px) rotate(3deg); }
@@ -44,7 +53,7 @@
 }
 
 @theme inline {
-  --font-heading: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-open), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
@@ -57,18 +66,29 @@ html {
   outline-offset: 2px;
 }
 
+/* Condensed bold headings, like O*NET */
+.font-heading {
+  font-stretch: 75%;
+  letter-spacing: 0;
+}
+
+/* Squarer buttons and chips (O*NET uses small corners, not pills) */
+a.rounded-full, button.rounded-full, select.rounded-full, input.rounded-full {
+  border-radius: 0.25rem;
+}
+
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition duration-200 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded px-5 py-2.5 font-semibold transition duration-200 active:scale-[0.97] disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
-    @apply bg-violet text-white shadow-md shadow-violet/25 hover:-translate-y-0.5 hover:bg-violet-dark hover:shadow-lg;
+    @apply bg-violet text-white hover:bg-violet-dark;
   }
   .btn-secondary {
-    @apply bg-white text-navy ring-1 ring-navy/15 hover:-translate-y-0.5 hover:bg-lavender;
+    @apply bg-white text-navy ring-1 ring-navy/30 hover:bg-lavender;
   }
   .card {
-    @apply rounded-3xl bg-white p-6 shadow-sm ring-1 ring-navy/5;
+    @apply rounded bg-white p-6 ring-1 ring-navy/15;
   }
 }
 

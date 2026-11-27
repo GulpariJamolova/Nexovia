@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Compass, MessageSquare, Puzzle, Search, Sparkles } from "lucide-react";
-import HeroArt from "@/components/home/HeroArt";
+import { WordCloud } from "@/components/career/FloatingWords";
 import CareerCard from "@/components/career/CareerCard";
 import { getCareer } from "@/lib/careers";
 
@@ -23,10 +23,10 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="overflow-hidden bg-gradient-to-b from-lavender to-offwhite">
+      <section className="overflow-hidden border-b border-navy/10 bg-lavender">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 sm:py-20 md:grid-cols-2">
           <div>
-            <p className="inline-block rounded-full bg-white px-4 py-1 text-xs font-bold uppercase tracking-widest text-violet-dark shadow-sm">
+            <p className="inline-block rounded bg-white px-3 py-1 text-xs font-bold uppercase tracking-widest text-violet-dark ring-1 ring-navy/15">
               Explore · Learn · Discover
             </p>
             <h1 className="mt-5 font-heading text-4xl font-bold leading-tight tracking-tight text-navy sm:text-5xl md:text-6xl">
@@ -47,7 +47,7 @@ export default function Home() {
             </div>
             <p className="mt-4 text-sm text-ink/70">No sign-up needed.</p>
           </div>
-          <HeroArt />
+          <WordCloud words={["Careers", "Subjects", "Skills", "Salary", "Challenge", "Pathway", "Interests", "Future", "Discover"]} className="h-64 sm:h-80" />
         </div>
       </section>
 
@@ -115,7 +115,7 @@ export default function Home() {
 
       {/* Closing call to action */}
       <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
-        <div className="rounded-[2rem] bg-gradient-to-br from-violet to-navy p-8 text-center text-white sm:p-12">
+        <div className="rounded bg-navy p-8 text-center text-white sm:p-12">
           <h2 className="font-heading text-3xl font-bold">Ready to see where your subjects can take you?</h2>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link href="/find" className="btn bg-white text-navy hover:bg-lavender">Find my career</Link>

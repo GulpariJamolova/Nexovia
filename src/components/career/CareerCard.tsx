@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, Lightbulb } from "lucide-react";
-import CategoryArt from "@/components/ui/CategoryArt";
 import { SubjectIcon } from "@/components/ui/Icons";
 import { subjects } from "@/data/subjects";
 import { categories } from "@/data/categories";
@@ -23,8 +22,8 @@ export default function CareerCard({
   compact?: boolean;
 }) {
   return (
-    <article className="flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy/5 transition duration-200 hover:-translate-y-1 hover:shadow-lg">
-      <CategoryArt category={career.category} className="h-36 w-full" />
+    <article className="flex flex-col overflow-hidden rounded bg-white ring-1 ring-navy/20 transition duration-200 hover:ring-violet hover:shadow-md">
+      <div className="h-1.5 w-full bg-plum" aria-hidden="true" />
 
       <div className="flex flex-1 flex-col gap-4 p-6">
         <div>

@@ -153,8 +153,8 @@ function NoResults({
   let title: string;
   let text: React.ReactNode;
   if (status === "gibberish") {
-    title = "Hmm, that doesn't look like a career";
-    text = "Try typing a job title, such as “pilot” or “nurse”, or a subject you like, such as “biology”.";
+    title = "Please write a real word";
+    text = "That doesn't look like a real word or career. Try a job title, such as “pilot” or “nurse”, or a subject you like, such as “biology”.";
   } else if (status === "short") {
     title = "Keep typing…";
     text = "Type a bit more of the career name and the results will appear.";

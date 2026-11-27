@@ -97,7 +97,8 @@ export default function SalarySection({
                     <td className="px-5 py-4 text-sm font-semibold text-ink/80">{levelLabel[b.level]}</td>
                     <td className="px-5 py-4 text-sm text-ink/85">{b.title ?? name}</td>
                     <td className="whitespace-nowrap px-5 py-4 text-right font-heading text-lg font-bold text-navy">
-                      {fmt.format(b.min)} – {fmt.format(b.max)}
+                      {b.averageOnly ? `about ${fmt.format(b.min)}` : `${fmt.format(b.min)} – ${fmt.format(b.max)}`}
+                      {b.averageOnly && <span className="block text-xs font-normal text-ink/70">average only</span>}
                     </td>
                   </tr>
                 ))}
@@ -109,6 +110,11 @@ export default function SalarySection({
             {info.note ? `${info.note} ` : ""}
             {basisLabel[info.basis]}
           </p>
+          {info.sourceType && (
+            <p className="mt-2 text-sm text-ink/80">
+              Type of source: <strong className="text-navy">{info.sourceType}</strong>
+            </p>
+          )}
           <p className="mt-2 text-sm text-ink/80">
             Source:{" "}
             <a

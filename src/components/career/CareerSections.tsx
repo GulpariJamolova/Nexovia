@@ -28,7 +28,9 @@ export function CareerIntro({ career }: { career: Career }) {
         <ArrowLeft size={16} /> All careers
       </Link>
 
-      <div className="mt-6 grid items-center gap-8 md:grid-cols-[1.15fr_1fr]">
+      <FloatingWords career={career} className="mt-4" />
+
+      <div className="mt-2">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-violet-dark">
             {categories[career.category].label}
@@ -47,7 +49,6 @@ export function CareerIntro({ career }: { career: Career }) {
             {career.purpose}
           </p>
         </div>
-        <FloatingWords career={career} />
       </div>
 
       <dl className="mt-10 grid gap-6 border-y border-navy/10 py-6 sm:grid-cols-3">

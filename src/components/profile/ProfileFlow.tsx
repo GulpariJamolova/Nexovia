@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, ArrowRight, Check, Sparkles } from "lucide-react";
 import { profileQuestions, months, birthYears } from "@/data/profile-questions";
+import { textLooksLikeGibberish } from "@/lib/textCheck";
 
 type Answers = Record<string, string | string[]>;
 
@@ -45,7 +46,14 @@ export default function ProfileFlow() {
     q.allowOther &&
     (q.type === "multi" ? list(q.id).includes("Other") : text(q.id) === "Other");
 
+  // Questions 1-15 are required. Only the last two ("dream" and "about") may be left empty.
+  // Anything typed in a text box (including "Other") must be a real word, not random letters.
+  const typed =
+    q.type === "text" || q.type === "textarea" ? text(q.id) : otherChosen ? text(`${q.id}_other`) : "";
+  const badText = typed.trim() !== "" && textLooksLikeGibberish(typed, q.id === "name" ? "name" : "text");
+
   function isValid() {
+    if (badText) return false;
     if (q.optional) return true;
     if (q.type === "text" || q.type === "textarea") return text(q.id).trim() !== "";
     if (q.type === "birth") return text("birthMonth") !== "" && text("birthYear") !== "";
@@ -227,6 +235,12 @@ export default function ProfileFlow() {
             className={inputClass}
           />
         </div>
+      )}
+
+      {badText && (
+        <p role="alert" className="mt-4 rounded-2xl bg-butter/70 p-3 text-sm font-semibold text-navy">
+          Please write a real word. What you typed looks like random letters.
+        </p>
       )}
 
       <button

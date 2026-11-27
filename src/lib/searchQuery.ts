@@ -33,7 +33,7 @@ const A = "a".charCodeAt(0);
 const code = (ch: string) => ch.charCodeAt(0) - A + 1; // 1..26, 0 = word edge
 const logp = (a: number, b: number) => (parseInt(BIGRAMS[a * 27 + b], 36) / 35) * 12 - 12;
 
-function wordScore(w: string) {
+export function wordScore(w: string) {
   const s = [0, ...[...w].map(code), 0];
   let total = 0;
   for (let i = 0; i < s.length - 1; i++) total += logp(s[i], s[i + 1]);
@@ -71,7 +71,7 @@ function isRepeated(w: string) {
 }
 
 /** True when a single lowercase word looks like random typing. */
-export function looksLikeGibberish(word: string): boolean {
+export function looksLikeGibberish(word: string, useScore = true): boolean {
   if (!/^[a-z]+$/.test(word)) return /^[^a-z0-9]+$/.test(word) || /^\d+$/.test(word);
   if (word.length < 3) return false;
   const run = keyboardRun(word);
@@ -79,7 +79,7 @@ export function looksLikeGibberish(word: string): boolean {
   if (isRepeated(word)) return true;
   if (word.length >= 4 && !/[aeiouy]/.test(word)) return true;
   if (/[^aeiouy]{6,}/.test(word)) return true;
-  if (word.length >= 5 && wordScore(word) < -4.2) return true;
+  if (useScore && word.length >= 5 && wordScore(word) < -3.5) return true;
   return false;
 }
 
@@ -141,3 +141,4 @@ export function meaningfulTokens(query: string): string[] {
 export function isAllowedShortWord(word: string) {
   return ALLOWED.has(word);
 }
+

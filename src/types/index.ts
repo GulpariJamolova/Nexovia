@@ -20,6 +20,7 @@ export type SalaryBand = {
   min: number;
   max: number;
   title?: string; // the exact job title used by the source, e.g. "Senior Accountant"
+  averageOnly?: boolean; // the source gave only an average (min = max = that average)
 };
 
 export type SalaryInfo = {
@@ -29,6 +30,7 @@ export type SalaryInfo = {
   bands: SalaryBand[];
   sourceName: string;
   sourceUrl: string;
+  sourceType?: "salary guide" | "survey estimate" | "job-site estimate";
   lastChecked: string; // e.g. "2026-10"
   dataDate?: string; // when the source's figures date from, e.g. "Q4 2024"
   note?: string; // what the figures include, e.g. "Total fixed monthly package"

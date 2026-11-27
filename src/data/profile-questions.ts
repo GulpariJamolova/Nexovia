@@ -213,6 +213,7 @@ export const profileQuestions: ProfileQuestion[] = [
     id: "dream",
     text: "What is one thing you would love to create, discover, improve, or help solve in the future?",
     type: "textarea",
+    optional: true,
     placeholder: "e.g. I'd love to build a robot that helps elderly people…",
   },
   {

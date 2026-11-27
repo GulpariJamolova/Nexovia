@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Bricolage_Grotesque, Inter } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FeedbackWidget from "@/components/feedback/FeedbackWidget"; // ADDED
 
-const inter = Inter({ subsets: ["latin"] });
-const bricolage = Bricolage_Grotesque({
+// Open Sans, like O*NET. Headings use its condensed width (see .font-heading in globals.css).
+const openSans = Open_Sans({
   subsets: ["latin"],
-  variable: "--font-bricolage",
+  axes: ["wdth"],
+  variable: "--font-open",
 });
 
 export const metadata: Metadata = {
@@ -24,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${inter.className} ${bricolage.variable} flex min-h-screen flex-col bg-offwhite text-ink antialiased`}
+        className={`${openSans.className} ${openSans.variable} flex min-h-screen flex-col bg-offwhite text-ink antialiased`}
       >
-        <Suspense fallback={<div className="h-16 border-b border-navy/10 bg-white" />}>
+        <Suspense fallback={<div className="h-28 border-b border-navy/10 bg-white" />}>
           <Header />
         </Suspense>
         <main className="flex-1">{children}</main>

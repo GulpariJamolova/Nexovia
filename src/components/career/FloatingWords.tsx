@@ -3,71 +3,58 @@ import { subjects } from "@/data/subjects";
 import type { Career } from "@/types";
 
 /*
-  Career-specific words that drift and fade slowly in the career page header.
-  Pure CSS animation (see `animate-drift` in globals.css), so it costs no
-  JavaScript. People who turn on "reduce motion" see the words standing still.
-
-  Each word sits on its own row, so long words never overlap.
+  O*NET-style banner: a purple panel full of colourful words of different sizes
+  that drift gently (pure CSS, see `animate-drift` in globals.css; people who
+  turn on "reduce motion" see them standing still).
+  The first three words are the biggest. Words are in normal text flow, so they
+  wrap on phones and never overlap.
 */
-const slots: { style: React.CSSProperties; primary: boolean; delay: string; duration: string }[] = [
-  { style: { left: "38%", top: "5%" }, primary: false, delay: "-1.2s", duration: "8s" },
-  { style: { left: "7%", top: "15%" }, primary: true, delay: "0s", duration: "9s" },
-  { style: { right: "7%", top: "32%" }, primary: false, delay: "-3.5s", duration: "7.5s" },
-  { style: { right: "9%", top: "43%" }, primary: true, delay: "-2s", duration: "10s" },
-  { style: { left: "9%", top: "58%" }, primary: false, delay: "-5s", duration: "8.5s" },
-  { style: { left: "17%", top: "69%" }, primary: true, delay: "-4s", duration: "9.5s" },
-  { style: { right: "13%", top: "85%" }, primary: false, delay: "-6s", duration: "7s" },
+const sizes = [
+  "text-4xl sm:text-6xl", "text-3xl sm:text-5xl", "text-3xl sm:text-4xl",
+  "text-xl sm:text-3xl", "text-lg sm:text-2xl", "text-xl sm:text-2xl",
+  "text-base sm:text-xl", "text-lg sm:text-xl", "text-base sm:text-lg",
 ];
-
-// Primary words go in slots 1, 3, 5; secondary words fill the rest.
-const order = [3, 0, 4, 1, 5, 2, 6];
+const colours = [
+  "text-white", "text-[#ff8bd0]", "text-[#ffcf6e]", "text-[#ff7ab0]", "text-[#ffe08a]",
+  "text-white", "text-[#ffa8dc]", "text-[#ffc266]", "text-[#ff9ad0]",
+];
+// Where each word sits in the reading order, so big and small words mix.
+const order = [3, 0, 5, 1, 7, 2, 4, 8, 6];
+const durations = [9, 7.5, 10, 8, 11, 8.5, 9.5, 7, 10.5];
 
 function wordsFor(career: Career): string[] {
-  const own = careerWords[career.slug];
-  if (own && own.length >= 7) return own.slice(0, 7);
-  // Fallback for careers added later without a word list.
+  const own = careerWords[career.slug] ?? [];
   const pool = [
-    ...(own ?? []),
+    ...own,
     ...career.keywords.filter((k) => k.toLowerCase() !== career.name.toLowerCase()),
     ...career.subjects.map((s) => subjects[s.id].name),
     ...career.skills,
   ];
-  return [...new Set(pool)].slice(0, 7);
+  return [...new Set(pool)].slice(0, 9);
 }
 
-export default function FloatingWords({ career }: { career: Career }) {
-  const words = wordsFor(career);
-
+export function WordCloud({ words, className = "" }: { words: string[]; className?: string }) {
+  const list = words.slice(0, 9);
   return (
     <div
       aria-hidden="true"
-      className="relative h-72 w-full overflow-hidden rounded-[2rem] bg-white ring-1 ring-navy/10 sm:h-80"
-      style={{
-        backgroundImage:
-          "radial-gradient(circle at 1px 1px, rgb(41 34 79 / 0.07) 1px, transparent 0)",
-        backgroundSize: "22px 22px",
-      }}
+      className={`flex flex-wrap content-center items-center justify-center gap-x-5 gap-y-1 overflow-hidden rounded bg-plum px-4 py-6 sm:gap-x-8 sm:px-10 ${className}`}
     >
-      <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-lavender/70 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-20 -left-10 h-56 w-56 rounded-full bg-sky/20 blur-3xl" />
-
-      {slots.map((slot, i) => {
-        const word = words[order[i]];
-        if (!word) return null;
-        return (
+      {order
+        .filter((i) => list[i])
+        .map((i) => (
           <span
             key={i}
-            style={{ ...slot.style, animationDelay: slot.delay, animationDuration: slot.duration }}
-            className={`absolute animate-drift whitespace-nowrap ${
-              slot.primary
-                ? "font-heading text-xl font-bold uppercase tracking-[0.08em] text-navy sm:text-3xl sm:tracking-[0.12em]"
-                : "text-sm font-medium tracking-wide text-violet-dark/80 sm:text-base"
-            }`}
+            style={{ animationDelay: `${-i * 1.3}s`, animationDuration: `${durations[i]}s` }}
+            className={`animate-drift font-heading font-bold leading-tight ${sizes[i]} ${colours[i]}`}
           >
-            {word}
+            {list[i]}
           </span>
-        );
-      })}
+        ))}
     </div>
   );
+}
+
+export default function FloatingWords({ career, className = "" }: { career: Career; className?: string }) {
+  return <WordCloud words={wordsFor(career)} className={`min-h-56 sm:min-h-64 ${className}`} />;
 }
